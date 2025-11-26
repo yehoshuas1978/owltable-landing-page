@@ -56,5 +56,12 @@ V2 will expand OwlTable's capabilities to support more complex environments and 
 *   **Full Database Versioning:** Treat your entire database as a versioned artifact, enabling complex deployment and rollback strategies.
 *   **Powerful CLI:** A full-featured Command-Line Interface (CLI) to enable advanced automation and deeper integration into infrastructure-as-code workflows, including AI-assisted query creation.
 
-### 📡 **Distributed Systems Support: Manage at Scale**
+### 🧠 AI-Assisted SQL Building: Write Code Faster & Safer**
+*   **atural Language to SQL:** Write SQL statements by simply describing what you want in plain English (e.g., "Find all users from California who logged in last week").
+
+*   **chema-Aware Suggestions:** The AI provides contextually relevant column and table name suggestions as you type, significantly reducing syntax errors and speeding up development.
+
+*   **Query Optimization on Creation:** Get immediate feedback and suggested rewrites for the SQL statement you just created, ensuring performance best practices are baked in from the start.
+
+### 📡 Distributed Systems Support: Manage at Scale**
 *   **Cluster-Aware:** Introducing features specifically designed for managing and monitoring distributed database environments, such as clusters and sharded databases.
