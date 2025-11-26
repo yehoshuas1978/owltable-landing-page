@@ -1,0 +1,6 @@
+site_name: OwlTable Documentation
+nav:
+  - Home: index.md
+  - Features: features.md
+  - Architecture: architecture.md
+  - Investment: investment.md
