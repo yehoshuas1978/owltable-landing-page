@@ -54,7 +54,7 @@ V2 will expand OwlTable's capabilities to support more complex environments and 
 
 ### 🔁 **Advanced Versioning: Total Control Over Your Database**
 *   **Full Database Versioning:** Treat your entire database as a versioned artifact, enabling complex deployment and rollback strategies.
-*   **Powerful CLI:** A full-featured Command-Line Interface (CLI) to enable advanced automation and deeper integration into infrastructure-as-code workflows.
+*   **Powerful CLI:** A full-featured Command-Line Interface (CLI) to enable advanced automation and deeper integration into infrastructure-as-code workflows, including AI-assisted query creation.
 
 ### 📡 **Distributed Systems Support: Manage at Scale**
 *   **Cluster-Aware:** Introducing features specifically designed for managing and monitoring distributed database environments, such as clusters and sharded databases.
