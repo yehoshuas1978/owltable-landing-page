@@ -44,7 +44,7 @@
                                 <a href="./" class="nav-link active" aria-current="page">Architecture</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../investment/" class="nav-link">Investment</a>
+                                <a href="../business_plan/" class="nav-link">Business Plan</a>
                             </li>
                         </ul>
 
@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../investment/" class="nav-link">
+                                <a rel="next" href="../business_plan/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -82,13 +82,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#architecture-and-data-privacy" class="nav-link">Architecture and Data Privacy</a>
+            <li class="nav-item" data-bs-level="1"><a href="#architecture-data-privacy-by-design" class="nav-link">Architecture &amp; Data Privacy by Design</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#client-server-model" class="nav-link">Client-Server Model</a>
+            <li class="nav-item" data-bs-level="2"><a href="#secure-client-server-model" class="nav-link">Secure Client-Server Model</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#data-privacy" class="nav-link">Data Privacy</a>
+            <li class="nav-item" data-bs-level="2"><a href="#expanding-database-support" class="nav-link">Expanding Database Support</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -99,19 +99,44 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="architecture-and-data-privacy">Architecture and Data Privacy</h1>
-<h2 id="client-server-model">Client-Server Model</h2>
-<p>OwlTable is designed with a strong emphasis on data privacy and security. Our architecture ensures that your sensitive database information never leaves your control.</p>
+<h1 id="architecture-data-privacy-by-design">Architecture &amp; Data Privacy by Design</h1>
+<p>At OwlTable, we believe that world-class tools should not require compromising on security. Our architecture is built on a fundamental principle: <strong>your data is yours, and it should never leave your control.</strong></p>
+<hr />
+<h2 id="secure-client-server-model">Secure Client-Server Model</h2>
+<p>OwlTable operates on a hybrid client-server model that guarantees data privacy. All sensitive operations occur within your own network, and our servers are only used for non-sensitive administrative tasks.</p>
+<pre><code>+-------------------------------------------------+
+|               Your Network Environment          |
+|                                                 |
+|  +-----------------+      +------------------+  |
+|  |   OwlTable      |-----&gt;|  Your Databases  |  |
+|  |  (Client App)   |      | (PostgreSQL,     |  |
+|  +-----------------+      |  MySQL, etc.)    |  |
+|        ^                  +------------------+  |
+|        |                                        |
++--------|----------------------------------------+
+         | (License Checks &amp; App Downloads)
+         |
++--------|----------------------------------------+
+|        v                                        |
+|  +-----------------+                              |
+|  | OwlTable Server |                              |
+|  | (Our Cloud)     |                              |
+|  +-----------------+                              |
+|                                                 |
++-------------------------------------------------+
+</code></pre>
 <ul>
-<li><strong>Client-Side Application:</strong> The core OwlTable application is installed and runs entirely within your own server environment. It directly connects to your databases (PostgreSQL, MySQL, Db2, SQL Server) to perform all management, monitoring, and analysis tasks.</li>
-<li><strong>Our Server's Role:</strong> Our servers are only used for two purposes:<ol>
-<li><strong>License Management:</strong> To verify your subscription and license information.</li>
-<li><strong>Application Downloads:</strong> To provide a secure location for you to download the OwlTable application and any updates.</li>
-</ol>
-</li>
+<li><strong>The OwlTable Client:</strong> This is the core application that you install and run <strong>on your own servers</strong>. It connects directly to your databases to perform all management, monitoring, and analysis tasks.</li>
+<li><strong>Our Cloud Services:</strong> Our servers are <strong>only</strong> used for license validation and to provide secure downloads of the application. <strong>We never have access to your database credentials, schema, or data.</strong></li>
 </ul>
-<h2 id="data-privacy">Data Privacy</h2>
-<p><strong>Your data remains on your servers.</strong> We do not have access to your database schemas, queries, or any of the data stored within your databases. All data processing and analysis happens locally on your infrastructure. This design ensures the highest level of security and compliance for your organization.</p></div>
+<p>This design ensures that OwlTable can be safely deployed in highly secure and regulated environments.</p>
+<hr />
+<h2 id="expanding-database-support">Expanding Database Support</h2>
+<p>We are committed to supporting a wide range of database technologies.</p>
+<ul>
+<li><strong>Currently Supported:</strong> PostgreSQL, MySQL, Db2, SQL Server.</li>
+<li><strong>Coming Soon (in V2):</strong> MongoDB, Amazon RDS, Azure SQL Database, and other major cloud database platforms.</li>
+</ul></div>
             </div>
         </div>
 

@@ -1,14 +1,46 @@
-# Architecture and Data Privacy
+# Architecture & Data Privacy by Design
 
-## Client-Server Model
+At OwlTable, we believe that world-class tools should not require compromising on security. Our architecture is built on a fundamental principle: **your data is yours, and it should never leave your control.**
 
-OwlTable is designed with a strong emphasis on data privacy and security. Our architecture ensures that your sensitive database information never leaves your control.
+---
 
-*   **Client-Side Application:** The core OwlTable application is installed and runs entirely within your own server environment. It directly connects to your databases (PostgreSQL, MySQL, Db2, SQL Server) to perform all management, monitoring, and analysis tasks.
-*   **Our Server's Role:** Our servers are only used for two purposes:
-    1.  **License Management:** To verify your subscription and license information.
-    2.  **Application Downloads:** To provide a secure location for you to download the OwlTable application and any updates.
+## Secure Client-Server Model
 
-## Data Privacy
+OwlTable operates on a hybrid client-server model that guarantees data privacy. All sensitive operations occur within your own network, and our servers are only used for non-sensitive administrative tasks.
 
-**Your data remains on your servers.** We do not have access to your database schemas, queries, or any of the data stored within your databases. All data processing and analysis happens locally on your infrastructure. This design ensures the highest level of security and compliance for your organization.
+```
++-------------------------------------------------+
+|               Your Network Environment          |
+|                                                 |
+|  +-----------------+      +------------------+  |
+|  |   OwlTable      |----->|  Your Databases  |  |
+|  |  (Client App)   |      | (PostgreSQL,     |  |
+|  +-----------------+      |  MySQL, etc.)    |  |
+|        ^                  +------------------+  |
+|        |                                        |
++--------|----------------------------------------+
+         | (License Checks & App Downloads)
+         |
++--------|----------------------------------------+
+|        v                                        |
+|  +-----------------+                              |
+|  | OwlTable Server |                              |
+|  | (Our Cloud)     |                              |
+|  +-----------------+                              |
+|                                                 |
++-------------------------------------------------+
+```
+
+*   **The OwlTable Client:** This is the core application that you install and run **on your own servers**. It connects directly to your databases to perform all management, monitoring, and analysis tasks.
+*   **Our Cloud Services:** Our servers are **only** used for license validation and to provide secure downloads of the application. **We never have access to your database credentials, schema, or data.**
+
+This design ensures that OwlTable can be safely deployed in highly secure and regulated environments.
+
+---
+
+## Expanding Database Support
+
+We are committed to supporting a wide range of database technologies.
+
+*   **Currently Supported:** PostgreSQL, MySQL, Db2, SQL Server.
+*   **Coming Soon (in V2):** MongoDB, Amazon RDS, Azure SQL Database, and other major cloud database platforms.

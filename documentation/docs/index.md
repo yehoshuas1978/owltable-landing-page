@@ -1,7 +1,9 @@
 # Welcome to OwlTable
 
-**The comprehensive multi-platform database management solution.**
+**Take Control of Your Databases.**
 
-OwlTable is a powerful DBA management tool designed for heterogeneous environments, supporting PostgreSQL, MySQL, Db2, and SQL Server. Our mission is to simplify database management, improve performance, and provide robust tools for schema version control, performance tuning, and data lifecycle management.
+In today's complex data environments, managing multiple databases can be a major challenge. OwlTable is a unified database management tool that empowers you to work faster, reduce risk, and gain deep visibility into your data infrastructure.
 
-This documentation site provides an overview of the OwlTable product, its features, and the investment opportunity.
+Whether you are a developer, a DBA, or a data analyst, OwlTable provides the tools you need to build, manage, and optimize your databases with confidence.
+
+This documentation provides a comprehensive overview of the OwlTable product, including its cutting-edge **[Features](features.md)**, its secure **[Architecture](architecture.md)**, and our detailed **[Business Plan](business_plan.md)**.
