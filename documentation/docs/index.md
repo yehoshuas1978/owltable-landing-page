@@ -8,4 +8,4 @@ Whether you are a developer, a DBA, or a data analyst, OwlTable provides the too
 
 **OwlTable offers a robust set of features including advanced query editing, schema visualization, real-time performance monitoring, and secure access controls, all designed to streamline your database operations.**
 
-This documentation provides a comprehensive overview of the OwlTable product, including its cutting-edge **[Features](features.md)**, its secure **[Architecture](architecture.md)**, and our detailed **[Business Plan](business_plan.md)**.
+This documentation provides a comprehensive overview of the OwlTable product, including its cutting-edge **Features** and its secure **Architecture**.
