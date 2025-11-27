@@ -10,6 +10,9 @@ The product will be released in two major versions, starting with a powerful cor
 
 V1 delivers a comprehensive suite of tools designed to streamline daily database operations, enhance performance, and protect your data.
 
+### 🚀 **Easy Installation: Get Started in Minutes**
+*   **Simple Setup:** The application is designed for simplicity. The UI is built into the application, requiring only a single installation to start running with no extra dependencies.
+
 ### 📝 **Schema Control: Deploy with Confidence**
 *   **Prevent Drift:** Compare database schemas across environments (dev, test, prod) to catch unintended changes before they cause issues.
 *   **Audit:** Maintain a complete, versioned history of all schema modifications.
@@ -54,13 +57,11 @@ V2 will expand OwlTable's capabilities to support more complex environments and 
 
 ### 🔁 **Advanced Versioning: Total Control Over Your Database**
 *   **Full Database Versioning:** Treat your entire database as a versioned artifact, enabling complex deployment and rollback strategies.
-*   **Powerful CLI:** A full-featured Command-Line Interface (CLI) to enable advanced automation and deeper integration into infrastructure-as-code workflows, including AI-assisted query creation.
+*   **Powerful CLI:** A full-featured Command-Line Interface (CLI) that can connect to the main application via REST calls and can also be used as a plugin for CI/CD pipelines to enable advanced automation and deeper integration into infrastructure-as-code workflows, including AI-assisted query creation.
 
 ### 🧠 **AI-Assisted SQL Building: Write Code Faster & Safer**
-*   **atural Language to SQL:** Write SQL statements by simply describing what you want in plain English (e.g., "Find all users from California who logged in last week").
-
-*   **chema-Aware Suggestions:** The AI provides contextually relevant column and table name suggestions as you type, significantly reducing syntax errors and speeding up development.
-
+*   **Natural Language to SQL:** Write SQL statements by simply describing what you want in plain English (e.g., "Find all users from California who logged in last week"). This feature uses an LLM installed on the client's server to translate text into SQL statements. It can be included as a feature in the advanced tier, or as an extra paid feature for the basic and pro tiers.
+*   **Schema-Aware Suggestions:** The AI provides contextually relevant column and table name suggestions as you type, significantly reducing syntax errors and speeding up development.
 *   **Query Optimization on Creation:** Get immediate feedback and suggested rewrites for the SQL statement you just created, ensuring performance best practices are baked in from the start.
 
 ### 📡 **Distributed Systems Support: Manage at Scale**
