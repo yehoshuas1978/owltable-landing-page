@@ -1,9 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy Documentation to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Change to 'master' if that's your default branch
+      - main
+    paths:
+      - 'documentation/**'
+      - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:
 
 permissions:
@@ -22,24 +25,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '20'
-          cache: 'npm'
+          python-version: '3.x'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install MkDocs and dependencies
+        run: |
+          pip install mkdocs mkdocs-material
 
-      - name: Build Next.js
-        run: npm run build
-        env:
-          GITHUB_PAGES: 'true'
+      - name: Build documentation
+        run: |
+          cd documentation
+          mkdocs build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./documentation/site
 
   deploy:
     environment:
@@ -51,3 +54,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp -r documentation/site out/documentation",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
