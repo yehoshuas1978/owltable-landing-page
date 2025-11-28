@@ -1,104 +1,83 @@
-# Fix: www.owltable.net Shows 404 on Vercel
+# Fix: How to Add www.owltable.net to Your Vercel Project
 
-## Problem
+## The Issue
 
-Your domain `www.owltable.net` is pointing to Vercel (good!), but it's showing a 404 error because **the domain hasn't been linked to your Vercel project yet**.
+You're on the **DNS Records** page, but you need to be on the **Project Domains** page instead!
 
-## Solution: Link Domain to Your Project
+## Correct Steps to Add Domain
 
-You have **two options** to fix this:
+### Step 1: Go to Your Project (Not Domain Settings)
 
----
+1. **Go to Vercel Dashboard**: https://vercel.com/dashboard
+2. **Find your project**: Look for `owltable-landing-page` in your projects list
+3. **Click on the project name** to open it
 
-### Option 1: Using Vercel Dashboard (Easiest)
+### Step 2: Add Domain to Project
 
-1. **Go to your Vercel dashboard:**
-   - Visit: https://vercel.com/dashboard
-   - Find your `owltable-landing-page` project
-   - Click on it
+1. Once inside your project, click on **"Settings"** tab at the top
+2. In the left sidebar, click **"Domains"**
+3. You'll see a section that says **"Add Domain"**
+4. In the input field, type: `www.owltable.net`
+5. Click **"Add"**
 
-2. **Add the domain:**
-   - Click on **"Settings"** tab
-   - Click on **"Domains"** in the left sidebar
-   - Click **"Add"** button
-   - Enter: `www.owltable.net`
-   - Click **"Add"**
+### Step 3: Vercel Will Check DNS
 
-3. **Verify DNS (if needed):**
-   - Vercel will check if the domain is pointing correctly
-   - If it shows a checkmark ✓, you're done!
-   - If not, follow Vercel's DNS instructions
+After you click "Add", Vercel will:
+- Check if the domain is pointing to Vercel
+- Show you the current DNS configuration
+- Tell you if you need to make any DNS changes
 
-4. **Wait a few minutes:**
-   - Domain propagation can take 1-5 minutes
-   - Refresh `www.owltable.net` and it should work!
+## Important: You're Currently in the Wrong Place
 
----
+The screenshot you showed is from:
+- ❌ **Vercel Dashboard** → **Domains** → **www.owltable.net** (DNS Records page)
 
-### Option 2: Using Vercel CLI
+You need to be in:
+- ✅ **Vercel Dashboard** → **Your Project** → **Settings** → **Domains**
 
-1. **Login to Vercel CLI:**
-   ```bash
-   cd /home/yehoshua_sus/Projects/owltable-landing-page
-   vercel login
-   ```
+## Visual Guide
 
-2. **Link the domain:**
-   ```bash
-   vercel domains add www.owltable.net
-   ```
+**Wrong place (where you are now):**
+```
+Vercel Dashboard → Domains → www.owltable.net → DNS Records
+```
 
-3. **Verify:**
-   ```bash
-   vercel domains ls
-   ```
+**Correct place (where you need to go):**
+```
+Vercel Dashboard → owltable-landing-page (project) → Settings → Domains → Add
+```
 
----
+## Alternative: Use Vercel's Automatic Domain Assignment
 
-## What's Happening?
+If you're having trouble, you can:
 
-- ✅ Your Next.js app is deployed to Vercel
-- ✅ Your domain DNS is pointing to Vercel
-- ❌ The domain is not linked to your specific project
+1. **Remove the custom domain for now**
+2. **Use Vercel's default URL**: `owltable-landing-page.vercel.app`
+3. **Test that your app works** on the Vercel URL
+4. **Then add the custom domain** once you confirm the app is working
 
-**The fix:** Just add the domain to your project in the Vercel dashboard!
+## DNS Configuration (For Reference)
 
----
+Your DNS should have these records pointing to Vercel:
 
-## Quick Check: What's Your Vercel URL?
+**For www.owltable.net:**
+- Type: `CNAME`
+- Name: `www`
+- Value: `cname.vercel-dns.com`
 
-When you deployed, Vercel gave you a URL like:
-- `owltable-landing-page.vercel.app`
-- or `owltable-landing-page-xxx.vercel.app`
+**For owltable.net (root domain):**
+- Type: `A`
+- Name: `@`
+- Value: `76.76.76.76` (Vercel's IP)
 
-**Try visiting that URL** - it should work! That confirms your deployment is successful.
+But **don't configure these manually** - let Vercel tell you what to configure after you add the domain to your project!
 
-Once you link `www.owltable.net` to the project, both URLs will work.
+## Next Steps
 
----
+1. Navigate to: https://vercel.com/dashboard
+2. Click on your `owltable-landing-page` project
+3. Go to Settings → Domains
+4. Add `www.owltable.net`
+5. Follow Vercel's instructions
 
-## After Fixing
-
-Once you add the domain in Vercel dashboard:
-1. Wait 1-5 minutes for propagation
-2. Visit `www.owltable.net`
-3. Your Next.js app should load! 🎉
-
----
-
-## Still Having Issues?
-
-If the domain still doesn't work after 5 minutes:
-
-1. **Check DNS settings:**
-   - Make sure `www.owltable.net` has a CNAME record pointing to `cname.vercel-dns.com`
-
-2. **Check Vercel project:**
-   - Verify the domain appears in your project's "Domains" settings
-   - Make sure it shows a green checkmark
-
-3. **Clear browser cache:**
-   - Try in an incognito/private window
-   - Or clear your browser cache
-
-Let me know if you need help with any of these steps!
+Let me know if you need help finding your project in the dashboard!
