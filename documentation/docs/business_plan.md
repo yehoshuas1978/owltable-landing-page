@@ -46,9 +46,8 @@ To capture a broad market while ensuring strong revenue growth, we propose the f
 
 | Tier        | Price                       | Target                          | Key Features                                       |
 | :---------- | :-------------------------- | :------------------------------ | :------------------------------------------------- |
-| **Starter** | $29/user/month              | Small teams, freelancers        | Schema diff, ERD, basic monitoring                 |
-| **Pro**     | $99/user/month              | Mid-size companies              | Query tuning, alerts, CI/CD integration, advanced monitoring, unlimited databases |
-| **Enterprise** | $399/user/month OR $30k–$80k/yr/company | Large orgs with multiple DBs    | Data masking/subsetting, capacity planning, SSO, dedicated support, custom integrations, unlimited databases and users |
+| **Starter** | $29/user/month              | Small teams, freelancers        | Schema diff, ERD, basic monitoring, query tuning & alerts          |
+| **Pro**     | $99/user/month              | Growing companies               | CI/CD integration, advanced monitoring, unlimited databases, data masking, capacity planning, SSO |
 
 ---
 

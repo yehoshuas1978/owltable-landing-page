@@ -34,34 +34,24 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         features: [
             'Schema diff',
             'ERD visualization',
-            'Basic monitoring'
+            'Basic monitoring',
+            'Query tuning & alerts'
         ]
     },
     {
         name: 'Pro',
         price: '$99',
         period: '/user/month',
-        target: 'Mid-size companies',
+        target: 'Growing companies',
         features: [
-            'Query tuning & alerts',
             'CI/CD integration',
             'Advanced monitoring',
-            'Unlimited databases'
-        ],
-        highlight: true
-    },
-    {
-        name: 'Enterprise',
-        price: '$399',
-        period: '/user/month',
-        target: 'Large organizations',
-        features: [
+            'Unlimited databases',
             'Data masking & subsetting',
             'Capacity planning',
-            'SSO & Dedicated support',
-            'Custom integrations',
-            'Unlimited users & DBs'
-        ]
+            'SSO & Dedicated support'
+        ],
+        highlight: true
     }
 ];
 

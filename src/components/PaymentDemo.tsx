@@ -24,7 +24,7 @@ export default function PaymentDemo() {
                     <p className="text-gray-400">Choose the plan that fits your team size and needs.</p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     {loading ? (
                         // Loading Skeletons
                         [1, 2, 3].map((i) => (
@@ -47,8 +47,8 @@ export default function PaymentDemo() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                                 className={`relative bg-[#2b2d30] p-8 rounded border transition-all duration-300 flex flex-col ${plan.highlight
-                                        ? 'border-[#3574f0] shadow-[0_0_30px_rgba(53,116,240,0.15)] scale-105 z-10'
-                                        : 'border-[#393b40] hover:border-gray-500'
+                                    ? 'border-[#3574f0] shadow-[0_0_30px_rgba(53,116,240,0.15)] scale-105 z-10'
+                                    : 'border-[#393b40] hover:border-gray-500'
                                     }`}
                             >
                                 {plan.highlight && (
@@ -78,8 +78,8 @@ export default function PaymentDemo() {
 
                                 <button
                                     className={`w-full py-3 font-medium rounded transition-colors ${plan.highlight
-                                            ? 'bg-[#3574f0] hover:bg-[#3065d2] text-white'
-                                            : 'bg-transparent border border-[#6e6e6e] hover:border-[#8c8c8c] text-white'
+                                        ? 'bg-[#3574f0] hover:bg-[#3065d2] text-white'
+                                        : 'bg-transparent border border-[#6e6e6e] hover:border-[#8c8c8c] text-white'
                                         }`}
                                 >
                                     Get Started
