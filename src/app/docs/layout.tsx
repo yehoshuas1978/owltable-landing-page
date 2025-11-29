@@ -11,7 +11,7 @@ export default function DocsLayout({
 
     return (
         <div className="min-h-screen bg-[#19191c]">
-            <Navbar />
+            <Navbar isDocsPage={true} />
             <div className="max-w-[1440px] mx-auto pt-16 flex">
                 {/* Sidebar */}
                 <aside className="w-64 fixed h-[calc(100vh-4rem)] overflow-y-auto border-r border-[#27272a] bg-[#080809] hidden md:block">

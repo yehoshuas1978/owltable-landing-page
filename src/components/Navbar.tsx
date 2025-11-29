@@ -2,9 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Menu } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ isDocsPage }: { isDocsPage?: boolean }) {
   return (
-    <nav className="fixed w-full z-50 glass-panel border-b border-white/5 mt-12">
+    <nav className={`fixed w-full z-50 glass-panel border-b border-white/5 ${isDocsPage ? 'mt-0' : 'mt-12'}`}>
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-12">
