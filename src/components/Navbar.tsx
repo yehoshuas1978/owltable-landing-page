@@ -31,6 +31,9 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
               <Link href="/docs/intro" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 Documentation
               </Link>
+              <Link href="/community" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+                Community
+              </Link>
             </div>
           </div>
 

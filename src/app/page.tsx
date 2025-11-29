@@ -8,7 +8,7 @@ import UseCases from '@/components/UseCases';
 import UserInfoDemo from '@/components/UserInfoDemo';
 import PaymentDemo from '@/components/PaymentDemo';
 import AnnouncementBanner from '@/components/AnnouncementBanner';
-import FeatureRequestForm from '@/components/FeatureRequestForm';
+
 
 export default function Home() {
   const [isBannerVisible, setIsBannerVisible] = useState(true);
@@ -22,7 +22,7 @@ export default function Home() {
       <UseCases />
       <UserInfoDemo />
       <PaymentDemo />
-      <FeatureRequestForm />
+      
 
       <footer className="py-8 bg-black border-t border-zinc-900 text-center text-gray-500 text-sm">
         <p>&copy; {new Date().getFullYear()} OwlTable. All rights reserved.</p>
