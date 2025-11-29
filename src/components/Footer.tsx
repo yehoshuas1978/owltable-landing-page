@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Github, Twitter, Linkedin } from 'lucide-react';
+import DemoButton from './DemoButton'; // Import the new DemoButton component
 
 export default function Footer() {
     return (
@@ -11,7 +12,14 @@ export default function Footer() {
                         <ul className="space-y-2">
                             <li><Link href="#features" className="text-gray-400 hover:text-white text-sm transition-colors">Features</Link></li>
                             <li><Link href="#pricing" className="text-gray-400 hover:text-white text-sm transition-colors">Pricing</Link></li>
-                            <li><Link href="#download" className="text-gray-400 hover:text-white text-sm transition-colors">Download</Link></li>
+                            <li>
+                              <DemoButton
+                                message="This is a demo site. Download functionality isn't available."
+                                className="text-gray-400 hover:text-white text-sm transition-colors"
+                              >
+                                Download
+                              </DemoButton>
+                            </li>
                             <li><Link href="/docs/intro" className="text-gray-400 hover:text-white text-sm transition-colors">Documentation</Link></li>
                         </ul>
                     </div>

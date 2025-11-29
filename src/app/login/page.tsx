@@ -1,20 +1,21 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Lock, User } from 'lucide-react';
+import DemoButton from '../../components/DemoButton'; // Import the new DemoButton component
 
 export default function LoginPage() {
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
+    // useRouter and setLoading state are no longer needed as the DemoButton handles the alert directly
+    // const router = useRouter();
+    // const [loading, setLoading] = useState(false);
 
-    const handleLogin = (e: React.FormEvent) => {
-        e.preventDefault();
-        alert('This is a demo site. Login functionality isn\'t available.');
-        // Here you would typically handle authentication, e.g.,
-        // router.push('/dashboard');
-    };
+    // handleLogin function is no longer needed as the DemoButton handles the alert directly
+    // const handleLogin = (e: React.FormEvent) => {
+    //     e.preventDefault();
+    //     alert('This is a demo site. Login functionality isn\'t available.');
+    //     // Here you would typically handle authentication, e.g.,
+    //     // router.push('/dashboard');
+    // };
 
     return (
         <div className="min-h-screen bg-[#19191c] flex flex-col items-center justify-center px-4">
@@ -27,7 +28,7 @@ export default function LoginPage() {
                 </div>
 
                 <div className="bg-[#2b2d30] p-8 rounded border border-[#393b40] shadow-xl">
-                    <form onSubmit={handleLogin} className="space-y-6">
+                    <form className="space-y-6"> {/* Remove onSubmit={handleLogin} */}
                         <div>
                             <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Email or Username
@@ -58,17 +59,12 @@ export default function LoginPage() {
                             </div>
                         </div>
 
-                        <button
-                            type="submit"
-                            disabled={loading}
+                        <DemoButton
+                            message="This is a demo site. Login functionality isn't available."
                             className="w-full bg-[#3574f0] hover:bg-[#3065d2] text-white font-medium py-2 rounded transition-colors disabled:opacity-50 flex justify-center items-center"
                         >
-                            {loading ? (
-                                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                            ) : (
-                                'Sign In'
-                            )}
-                        </button>
+                            Sign In
+                        </DemoButton>
                     </form>
                 </div>
 

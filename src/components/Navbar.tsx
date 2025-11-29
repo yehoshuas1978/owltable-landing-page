@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Menu } from 'lucide-react';
+import DemoButton from './DemoButton'; // Import the new DemoButton component
 
 export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
 
@@ -41,18 +42,18 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
             <button className="text-gray-400 hover:text-white transition-colors">
               <Search size={18} />
             </button>
-            <Link
-              href="/login"
+            <DemoButton
+              message="This is a demo site. Login functionality isn't available."
               className="text-gray-400 hover:text-white text-sm font-medium transition-colors"
             >
               Log In
-            </Link>
-            <Link
-              href="/#download"
+            </DemoButton>
+            <DemoButton
+              message="This is a demo site. Download functionality isn't available."
               className="hidden md:block btn-primary text-sm"
             >
               Download
-            </Link>
+            </DemoButton>
             <button className="md:hidden text-gray-300">
               <Menu size={24} />
             </button>
