@@ -16,7 +16,6 @@ export default function LoginPage() {
         // For demo purposes, we'll simulate a login.
         setTimeout(() => {
             setLoading(false);
-            alert('Login successful (demo mode). Redirecting to dashboard...');
             router.push('/dashboard'); // Simulate redirect
         }, 1500);
     };
