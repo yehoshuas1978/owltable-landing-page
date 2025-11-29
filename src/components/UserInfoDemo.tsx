@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { User, Mail, Shield, Activity, RefreshCw } from 'lucide-react';
+import { Mail, Shield, Activity, RefreshCw } from 'lucide-react';
 import { dataService, UserData } from '@/services/dataService';
 
 export default function UserInfoDemo() {
