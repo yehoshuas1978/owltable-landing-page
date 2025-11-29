@@ -24,15 +24,14 @@ export default function Hero() {
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-                        The Capable <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-                            Table Manager
+                            Manage your data with ease
                         </span>
                     </h1>
 
                     <p className="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed font-light">
                         A powerful, ergonomic environment for managing your data.
-                        Designed for performance and developer productivity.
+                        Execute SQL, visualize tables, and boost developer productivity.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">

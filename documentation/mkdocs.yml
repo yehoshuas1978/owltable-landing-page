@@ -1,5 +1,9 @@
 # Documentation for OwlTable
 site_name: OwlTable Documentation
+theme:
+  name: material
+  logo: assets/owltable-logo.jpg
+  favicon: assets/owltable-logo.jpg
 nav:
   - Home: index.md
   - Features: features.md

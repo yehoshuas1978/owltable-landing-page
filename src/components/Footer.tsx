@@ -49,7 +49,7 @@ export default function Footer() {
                         <span className="text-gray-500 text-sm">© {new Date().getFullYear()}</span>
                     </div>
                     <p className="text-gray-500 text-sm">
-                        Designed for developers, by developers.
+                        Manage your data with ease
                     </p>
                 </div>
             </div>

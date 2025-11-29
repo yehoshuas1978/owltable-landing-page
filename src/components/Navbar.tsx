@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, Menu } from 'lucide-react';
 
 export default function Navbar() {
@@ -8,9 +9,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-12">
             <Link href="/" className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#3574f0] rounded-lg flex items-center justify-center text-white font-bold text-lg">
-                O
-              </div>
+              <Image
+                src="/owltable-logo.jpg"
+                alt="OwlTable Logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
               OwlTable
             </Link>
             <div className="hidden md:flex items-center space-x-8">

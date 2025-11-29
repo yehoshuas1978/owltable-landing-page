@@ -3,8 +3,8 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OwlTable - The Capable Table Manager",
-  description: "A powerful, ergonomic environment for managing your data.",
+  title: "OwlTable - The Capable Database Management Tool & SQL Client",
+  description: "A powerful, ergonomic database management tool and SQL client designed for performance and developer productivity. Manage your data with ease.",
 };
 
 export default function RootLayout({
