@@ -19,10 +19,10 @@ export default function Navbar({ isDocsPage }: { isDocsPage?: boolean }) {
               OwlTable
             </Link>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="#features" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+              <Link href="/#features" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 Features
               </Link>
-              <Link href="#pricing" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+              <Link href="/#pricing" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 Pricing
               </Link>
               <Link href="/docs/intro" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
@@ -42,7 +42,7 @@ export default function Navbar({ isDocsPage }: { isDocsPage?: boolean }) {
               Log In
             </Link>
             <Link
-              href="#download"
+              href="/#download"
               className="hidden md:block btn-primary text-sm"
             >
               Download
