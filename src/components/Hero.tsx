@@ -35,11 +35,13 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="btn-primary flex items-center justify-center gap-2 text-lg px-8 py-4">
-                            <Download size={20} />
-                            Download Free Trial
-                        </button>
-                        <button className="btn-secondary flex items-center justify-center gap-2 text-lg px-8 py-4">
+                                    <button
+                                      onClick={() => alert('This is a demo site. Download functionality isn\'t available.')}
+                                      className="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors flex items-center justify-center space-x-2"
+                                    >
+                                      <Download size={20} />
+                                      <span>Download Free Trial</span>
+                                    </button>                        <button className="btn-secondary flex items-center justify-center gap-2 text-lg px-8 py-4">
                             <Terminal size={20} />
                             Release Notes
                         </button>

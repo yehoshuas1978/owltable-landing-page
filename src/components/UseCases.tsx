@@ -53,7 +53,7 @@ export default function UseCases() {
                         </span>
                     </h2>
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                        Whether you're a DBA, developer, or analyst, OwlTable adapts to your workflow.
+                        Whether you&apos;re a DBA, developer, or analyst, OwlTable adapts to your workflow.
                     </p>
                 </motion.div>
 

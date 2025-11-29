@@ -9,16 +9,11 @@ export default function LoginPage() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
-    const handleLogin = async (e: React.FormEvent) => {
+    const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        setLoading(true);
-
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        // Set mock auth
-        localStorage.setItem('isLoggedIn', 'true');
-        router.push('/license');
+        alert('This is a demo site. Login functionality isn\'t available.');
+        // Here you would typically handle authentication, e.g.,
+        // router.push('/dashboard');
     };
 
     return (

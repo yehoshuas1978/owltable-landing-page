@@ -58,7 +58,7 @@ ${formData.featureRequest}
                             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
                             <h3 className="text-2xl font-bold text-white mb-4">Thank You!</h3>
                             <p className="text-gray-400">
-                                Your feedback is invaluable. We'll review your feature request and get back to you soon!
+                                Your feedback is invaluable. We&apos;ll review your feature request and get back to you soon!
                             </p>
                         </motion.div>
                     </div>
