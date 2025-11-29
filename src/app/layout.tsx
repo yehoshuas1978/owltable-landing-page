@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: "Manage your data with ease. The capable database management tool.",
   },
   verification: {
-    google: 'RtbKqO_ovAEwfOmovJpnTFTP_m_dgz7eEAgsFdlKVy8',
+    google: 'RtbKq0_ovAEwfOmovJpnTFTP_m_dgz7eEAgsFdlKVy8',
   },
 };
 
