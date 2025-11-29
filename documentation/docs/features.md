@@ -2,11 +2,11 @@
 
 OwlTable is your all-in-one command center for database management. Our features are designed to give you unparalleled control, deep performance insights, and seamless integration into your development workflows.
 
-The product will be released in two major versions, starting with a powerful core and expanding to meet the needs of large-scale enterprises.
+The product will be released in three tiers: Starter, Pro, and Enterprise.
 
 ---
 
-## 🚀 Version 1 (V1) - The Modern Database Toolkit
+## 🚀 Starter Features
 
 V1 delivers a comprehensive suite of tools designed to streamline daily database operations, enhance performance, and protect your data.
 
@@ -43,9 +43,9 @@ V1 delivers a comprehensive suite of tools designed to streamline daily database
 
 ---
 
-## 🌟 Version 2 (V2) - Enterprise-Ready Capabilities
+## ✨ Pro Features
 
-V2 will expand OwlTable's capabilities to support more complex environments and provide advanced, proactive management tools for mission-critical systems.
+These features expand OwlTable's capabilities to support more complex environments and provide advanced, proactive management tools for mission-critical systems.
 
 ### 🌐 **Expanded Compatibility: Connect to Any Database**
 *   **NoSQL Support:** Introducing support for MongoDB.
@@ -66,3 +66,9 @@ V2 will expand OwlTable's capabilities to support more complex environments and 
 
 ### 📡 **Distributed Systems Support: Manage at Scale**
 *   **Cluster-Aware:** Introducing features specifically designed for managing and monitoring distributed database environments, such as clusters and sharded databases.
+
+---
+
+## 🌟 Enterprise Features
+
+Contact sales for details.
