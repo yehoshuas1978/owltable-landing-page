@@ -1,10 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Search, Menu } from 'lucide-react';
 
-export default function Navbar({ isDocsPage }: { isDocsPage?: boolean }) {
+export default function Navbar() {
+  const pathname = usePathname();
+  const isDocsPage = pathname.startsWith('/docs');
+
   return (
-    <nav className={`fixed w-full z-50 glass-panel border-b border-white/5 ${isDocsPage ? 'mt-0' : 'mt-12'}`}>
+    <nav className={`fixed w-full z-50 glass-panel border-b border-white/5 ${isDocsPage ? '' : 'mt-12'}`}>
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-12">
@@ -19,10 +25,10 @@ export default function Navbar({ isDocsPage }: { isDocsPage?: boolean }) {
               OwlTable
             </Link>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#features" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+              <Link href={isDocsPage ? "/#features" : "#features"} className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 Features
               </Link>
-              <Link href="/#pricing" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+              <Link href={isDocsPage ? "/#pricing" : "#pricing"} className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 Pricing
               </Link>
               <Link href="/docs/intro" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
@@ -42,7 +48,7 @@ export default function Navbar({ isDocsPage }: { isDocsPage?: boolean }) {
               Log In
             </Link>
             <Link
-              href="/#download"
+              href={isDocsPage ? "/#download" : "#download"}
               className="hidden md:block btn-primary text-sm"
             >
               Download
