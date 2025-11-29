@@ -1,10 +1,8 @@
 'use client';
 
 import { AlertCircle, X } from 'lucide-react';
-import { useState } from 'react';
 
-export default function AnnouncementBanner() {
-    const [isVisible, setIsVisible] = useState(true);
+export default function AnnouncementBanner({ isVisible, onClose }: { isVisible: boolean, onClose: () => void }) {
 
     if (!isVisible) return null;
 
@@ -19,7 +17,7 @@ export default function AnnouncementBanner() {
                     </p>
                 </div>
                 <button
-                    onClick={() => setIsVisible(false)}
+                    onClick={onClose}
                     className="text-white/80 hover:text-white transition-colors p-1"
                     aria-label="Close announcement"
                 >

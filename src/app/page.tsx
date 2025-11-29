@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -8,10 +11,12 @@ import AnnouncementBanner from '@/components/AnnouncementBanner';
 import FeatureRequestForm from '@/components/FeatureRequestForm';
 
 export default function Home() {
+  const [isBannerVisible, setIsBannerVisible] = useState(true);
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-blue-500/30">
-      <AnnouncementBanner />
-      <Navbar />
+      <AnnouncementBanner isVisible={isBannerVisible} onClose={() => setIsBannerVisible(false)} />
+      <Navbar withMarginTop={isBannerVisible} />
       <Hero />
       <Features />
       <UseCases />

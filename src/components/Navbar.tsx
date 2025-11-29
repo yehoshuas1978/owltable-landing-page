@@ -2,15 +2,12 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { Search, Menu } from 'lucide-react';
 
-export default function Navbar() {
-  const pathname = usePathname();
-  const isDocsPage = pathname.startsWith('/docs');
+export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
 
   return (
-    <nav className={`fixed w-full z-50 glass-panel border-b border-white/5 ${isDocsPage ? '' : 'mt-12'}`}>
+    <nav className={`fixed w-full z-50 glass-panel border-b border-white/5 ${withMarginTop ? 'mt-12' : ''}`}>
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-12">
@@ -25,10 +22,10 @@ export default function Navbar() {
               OwlTable
             </Link>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href={isDocsPage ? "/#features" : "#features"} className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+              <Link href="/#features" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 Features
               </Link>
-              <Link href={isDocsPage ? "/#pricing" : "#pricing"} className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+              <Link href="/#pricing" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
                 Pricing
               </Link>
               <Link href="/docs/intro" className="text-sm font-medium text-gray-400 hover:text-white transition-colors">
@@ -48,7 +45,7 @@ export default function Navbar() {
               Log In
             </Link>
             <Link
-              href={isDocsPage ? "/#download" : "#download"}
+              href="/#download"
               className="hidden md:block btn-primary text-sm"
             >
               Download
