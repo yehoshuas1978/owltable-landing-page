@@ -1,9 +1,8 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { dataService, PricingPlan } from '@/services/dataService';
+import Tooltip from './Tooltip';
 
 export default function PaymentDemo() {
     const [plans, setPlans] = useState<PricingPlan[]>([]);
@@ -71,7 +70,9 @@ export default function PaymentDemo() {
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex items-start text-gray-300 text-sm">
                                             <Check className="w-4 h-4 text-[#3574f0] mr-3 mt-0.5 flex-shrink-0" />
-                                            <span title={feature.description}>{feature.name}</span>
+                                            <Tooltip text={feature.description}>
+                                                {feature.name}
+                                            </Tooltip>
                                         </li>
                                     ))}
                                 </ul>
