@@ -71,7 +71,7 @@ export default function PaymentDemo() {
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex items-start text-gray-300 text-sm">
                                             <Check className="w-4 h-4 text-[#3574f0] mr-3 mt-0.5 flex-shrink-0" />
-                                            {feature}
+                                            <span title={feature.description}>{feature.name}</span>
                                         </li>
                                     ))}
                                 </ul>

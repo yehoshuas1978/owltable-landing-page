@@ -12,7 +12,7 @@ export interface PricingPlan {
     price: string;
     period: string;
     target: string;
-    features: string[];
+    features: { name: string, description: string }[];
     highlight?: boolean;
 }
 
@@ -32,10 +32,10 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         period: '/user/month',
         target: 'Small teams, freelancers',
         features: [
-            'Schema diff',
-            'ERD visualization',
-            'Basic monitoring',
-            'Query tuning & alerts'
+            { name: 'Schema diff', description: 'Compare and sync database schemas between environments.' },
+            { name: 'ERD visualization', description: 'Visualize your database schema as an Entity-Relationship Diagram.' },
+            { name: 'Basic monitoring', description: 'Monitor key database metrics and get alerts on potential issues.' },
+            { name: 'Query tuning & alerts', description: 'Analyze query performance and get alerts on slow queries.' }
         ]
     },
     {
@@ -44,12 +44,12 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         period: '/user/month',
         target: 'Growing companies',
         features: [
-            'CI/CD integration',
-            'Advanced monitoring',
-            'Unlimited databases',
-            'Data masking & subsetting',
-            'Capacity planning',
-            'SSO & Dedicated support'
+            { name: 'CI/CD integration', description: 'Integrate database changes into your CI/CD pipeline.' },
+            { name: 'Advanced monitoring', description: 'Get detailed insights into database performance with advanced monitoring and analytics.' },
+            { name: 'Unlimited databases', description: 'Connect to and manage an unlimited number of databases.' },
+            { name: 'Data masking & subsetting', description: 'Mask sensitive data and create smaller, representative subsets of your data for development and testing.' },
+            { name: 'Capacity planning', description: 'Forecast future database growth and plan capacity accordingly.' },
+            { name: 'Dedicated support', description: 'Get dedicated support from our team of database experts.' }
         ],
         highlight: true
     }
