@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     title: "OwlTable",
     description: "Manage your data with ease. The capable database management tool.",
   },
+  verification: {
+    google: 'RtbKqO_ovAEwfOmovJpnTFTP_m_dgz7eEAgs',
+  },
 };
 
 export default function RootLayout({
