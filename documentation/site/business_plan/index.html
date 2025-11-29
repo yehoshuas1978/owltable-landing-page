@@ -1,111 +1,665 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+      
         
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
+      
+      
+      <link rel="icon" href="../assets/owltable-logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
         <title>Business Plan - OwlTable Documentation</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../css/brands.min.css" rel="stylesheet">
-        <link href="../css/solid.min.css" rel="stylesheet">
-        <link href="../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">OwlTable Documentation</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href=".." class="nav-link">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../features/" class="nav-link">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../architecture/" class="nav-link">Architecture</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./" class="nav-link active" aria-current="page">Business Plan</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../architecture/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#go-to-market-business-plan" class="nav-link">Go-to-Market &amp; Business Plan</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1-market-and-target-audience" class="nav-link">1. Market and Target Audience</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2-competition-and-differentiation" class="nav-link">2. Competition and Differentiation</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3-suggested-saas-pricing-model" class="nav-link">3. Suggested SaaS Pricing Model</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4-investment-requirements" class="nav-link">4. Investment Requirements</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#go-to-market-business-plan" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OwlTable Documentation" class="md-header__button md-logo" aria-label="OwlTable Documentation" data-md-component="logo">
+      
+  <img src="../assets/owltable-logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OwlTable Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Business Plan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OwlTable Documentation" class="md-nav__button md-logo" aria-label="OwlTable Documentation" data-md-component="logo">
+      
+  <img src="../assets/owltable-logo.jpg" alt="logo">
+
+    </a>
+    OwlTable Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Plan
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Business Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-market-and-target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Market and Target Audience
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Market and Target Audience">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Audience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-competition-and-differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Competition and Differentiation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Competition and Differentiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-competitors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Competitors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#our-competitive-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Our Competitive Advantage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-saas-pricing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SaaS Pricing Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-investment-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Investment Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-product-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Product Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Product Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-general-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 General Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-role-specific-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Role-Specific Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-advanced-capabilities-v2-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Advanced Capabilities (V2 Status)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-market-and-target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Market and Target Audience
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Market and Target Audience">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Target Audience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-competition-and-differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Competition and Differentiation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Competition and Differentiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-competitors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Competitors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#our-competitive-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Our Competitive Advantage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-saas-pricing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SaaS Pricing Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-investment-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Investment Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-product-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Product Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Product Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-general-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 General Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-role-specific-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Role-Specific Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-advanced-capabilities-v2-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Advanced Capabilities (V2 Status)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
 
 <h1 id="go-to-market-business-plan">Go-to-Market &amp; Business Plan</h1>
 <p>This document outlines the business strategy, market analysis, and financial planning for OwlTable.</p>
@@ -153,7 +707,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="3-suggested-saas-pricing-model">3. Suggested SaaS Pricing Model</h2>
+<h2 id="3-saas-pricing-model">3. SaaS Pricing Model</h2>
 <p>To capture a broad market while ensuring strong revenue growth, we propose the following tiered SaaS pricing model:</p>
 <table>
 <thead>
@@ -166,19 +720,26 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Starter</strong></td>
-<td style="text-align: left;">$29/user/month</td>
-<td style="text-align: left;">Small teams, freelancers</td>
-<td style="text-align: left;">Schema diff, ERD, basic monitoring, query tuning &amp; alerts</td>
+<td style="text-align: left;"><strong>Free Plan</strong></td>
+<td style="text-align: left;">Free</td>
+<td style="text-align: left;">Individual users</td>
+<td style="text-align: left;">Multi-Database Support, Advanced SQL Editor (syntax highlighting, auto-completion), Lightning Fast Performance, Secure Connections (SSH tunneling, SSL/TLS), Basic Data Visualization.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Pro</strong></td>
-<td style="text-align: left;">$99/user/month</td>
-<td style="text-align: left;">Growing companies</td>
-<td style="text-align: left;">CI/CD integration, advanced monitoring, unlimited databases, data masking, capacity planning, SSO</td>
+<td style="text-align: left;"><strong>Team Plan</strong></td>
+<td style="text-align: left;">$29/user/month</td>
+<td style="text-align: left;">Small to mid-sized teams (up to 50 users)</td>
+<td style="text-align: left;">All Free Plan features, plus: Priority Support, Version Control Integration, Advanced Data Visualization (charts, graphs), Role-Specific Features (DBA: multi-server management, performance monitoring, automated backups; Backend Dev: schema visualization, migration tools; Data Analyst: visual query builder, data export; DevOps: environment management, audit logs).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Enterprise</strong></td>
+<td style="text-align: left;">$30k–$80k/year per company (Custom)</td>
+<td style="text-align: left;">Larger organizations</td>
+<td style="text-align: left;">All Team Plan features, plus: Custom Integrations, Dedicated Support, Advanced Role Management (granular access control), Smart Analysis (anomaly detection), Enhanced Audit Logs, Capacity Planning, SSO.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>(Note: The provided website content contains a contradiction: "Pre-Launch: OwlTable is currently under development and not yet available. Expected launch: Q1 2026." and "OwlTable V1 Available Now". The pricing details listed above are from the "Transparent Pricing" section, reflecting the V1 offering.)</strong></p>
 <hr />
 <h2 id="4-investment-requirements">4. Investment Requirements</h2>
 <p>To accelerate the development and launch of OwlTable, we are seeking a seed investment to cover the following key areas:</p>
@@ -222,82 +783,112 @@
 <td>To cover hosting, domain registration, and essential operational tools.</td>
 </tr>
 </tbody>
-</table></div>
-            </div>
-        </div>
+</table>
+<hr />
+<h2 id="5-product-features">5. Product Features</h2>
+<p>OwlTable is designed with a comprehensive set of features to cater to diverse database management needs, from individual developers to large enterprise teams. These features are continuously evolving, with many reflecting advanced capabilities (suggesting a 'v2' status or beyond).</p>
+<h3 id="51-general-features">5.1 General Features</h3>
+<ul>
+<li><strong>Multi-Database Support:</strong> Seamlessly manage PostgreSQL, MySQL, SQL Server, and other popular database systems from a single interface.</li>
+<li><strong>Advanced SQL Editor:</strong> A powerful editor equipped with syntax highlighting, intelligent auto-completion, and smart suggestions to boost productivity and reduce errors.</li>
+<li><strong>Lightning Fast Performance:</strong> Optimized for speed, ensuring efficient query execution, data loading, and real-time data visualization.</li>
+<li><strong>Secure Connections:</strong> Enterprise-grade security with support for SSH tunneling, SSL/TLS encryption, and robust credential management, ensuring your data remains protected.</li>
+<li><strong>Version Control Integration:</strong> Track schema changes, manage migrations, and collaborate effectively with integrated version control capabilities.</li>
+<li><strong>Data Visualization:</strong> Built-in tools for creating intuitive charts and graphs from your data, along with flexible export capabilities for further analysis.</li>
+</ul>
+<h3 id="52-role-specific-features">5.2 Role-Specific Features</h3>
+<p>OwlTable provides tailored functionalities to empower different professional roles:</p>
+<ul>
+<li><strong>For Database Administrators (DBAs):</strong><ul>
+<li><strong>Multi-server management:</strong> Centralized control over multiple database instances.</li>
+<li><strong>Performance monitoring:</strong> Real-time insights into database health and query performance.</li>
+<li><strong>Automated backups:</strong> Reliable and scheduled data backup solutions.</li>
+</ul>
+</li>
+<li><strong>For Backend Developers:</strong><ul>
+<li><strong>Fast query execution:</strong> Streamlined environment for writing and executing queries efficiently.</li>
+<li><strong>Schema visualization:</strong> Intuitive visual representations of database schemas.</li>
+<li><strong>Migration tools:</strong> Facilitates easy management of database schema changes.</li>
+</ul>
+</li>
+<li><strong>For Data Analysts:</strong><ul>
+<li><strong>Visual query builder:</strong> Construct complex queries without extensive SQL knowledge.</li>
+<li><strong>Data export:</strong> Flexible options to export data for external reporting and analysis.</li>
+<li><strong>Chart generation:</strong> Quickly create visualizations from database queries.</li>
+</ul>
+</li>
+<li><strong>For DevOps Teams:</strong><ul>
+<li><strong>Version control:</strong> Manage database code alongside application code.</li>
+<li><strong>Environment management:</strong> Tools for handling different database environments (dev, staging, prod).</li>
+<li><strong>Audit logs:</strong> Comprehensive logging of all database operations for compliance and troubleshooting.</li>
+</ul>
+</li>
+</ul>
+<h3 id="53-advanced-capabilities-v2-status">5.3 Advanced Capabilities (V2 Status)</h3>
+<p>Several features within OwlTable demonstrate a commitment to advanced functionality and innovation, hinting at capabilities that would be expected in a 'V2' release or beyond:</p>
+<ul>
+<li><strong>Advanced SQL Editor:</strong> Beyond basic auto-completion, intelligent suggestions significantly enhance the developer experience.</li>
+<li><strong>Secure Connections:</strong> The comprehensive support for SSH tunneling, SSL/TLS encryption, and credential management signifies a high level of security not always found in basic tools.</li>
+<li><strong>Version Control Integration:</strong> Deep integration with version control systems for database schemas is an advanced feature that streamlines modern development workflows.</li>
+<li><strong>Smart Analysis:</strong> The ability to automatically detect anomalies in user behavior points towards integrated AI/ML capabilities for advanced insights.</li>
+<li><strong>Role Management:</strong> Granular access control for every field indicates a sophisticated and robust security and permissions system, crucial for enterprise environments.</li>
+<li><strong>Audit Logs:</strong> A complete history of all data modifications is essential for compliance, security, and debugging in complex systems.</li>
+</ul>
+<p>The explicit mention of <strong>"OwlTable V1 Available Now"</strong> on the site, despite other pre-launch notices, indicates an ongoing product development lifecycle with planned future enhancements and version releases.</p>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
 </html>
