@@ -32,6 +32,7 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         period: '/user/month',
         target: 'Small teams, freelancers',
         features: [
+            { name: 'Edit Data on the Fly', description: 'Visually browse and edit data directly within a query result set (up to 500 records).' },            
             { name: 'Schema diff', description: 'Compare and sync database schemas between environments.' },
             { name: 'ERD visualization', description: 'Visualize your database schema as an Entity-Relationship Diagram.' },
             { name: 'Basic monitoring', description: 'Monitor key database metrics and get alerts on potential issues.' },
