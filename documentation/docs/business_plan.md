@@ -60,7 +60,7 @@ To accelerate the development and launch of OwlTable, we are seeking a seed inve
 
 | Category                      | Amount        | Purpose                                                                          |
 | ----------------------------- | ------------- | -------------------------------------------------------------------------------- |
-| Founder's Salary (3 months)   | 90,000 ILS   | To allow for full-time dedication to product development.                          |
+| Founder's Salary (6 months)   | 180,000 ILS   | To allow for full-time dedication to product development.                          |
 | Legal Fees                    | 17,500 ILS    | To establish the company, protect intellectual property, and draft essential legal agreements, including Software License Agreements, End User License Agreements (EULA), and Service Level Agreements (SLA). |
 | Software License Agreement    | 10,000 ILS    | To cover the costs associated with acquiring and maintaining necessary software licenses for development tools and third-party components. |
 | Part-Time Marketing Expert    | 35,000 ILS    | To develop a go-to-market strategy and initiate early sales efforts.             |
