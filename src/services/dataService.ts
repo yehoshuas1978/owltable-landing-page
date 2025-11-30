@@ -45,11 +45,10 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         target: 'Growing companies',
         features: [
             { name: 'CI/CD integration', description: 'Integrate database changes into your CI/CD pipeline.' },
-            { name: 'Advanced monitoring', description: 'Get detailed insights into database performance with advanced monitoring and analytics.' },
-            { name: 'Unlimited databases', description: 'Connect to and manage an unlimited number of databases.' },
+            { name: 'Advanced monitoring', description: 'Connect with external monitoring systems like OpenTelemetry for a unified view of your infrastructures health.' },
+            { name: 'Automation', description: 'Automate Tedious TasksSimplify Backups: Schedule and automate database backups to ensure your data is always protected without manual intervention.' },
             { name: 'Data masking & subsetting', description: 'Mask sensitive data and create smaller, representative subsets of your data for development and testing.' },
             { name: 'Capacity planning', description: 'Forecast future database growth and plan capacity accordingly.' },
-            { name: 'Dedicated support', description: 'Get dedicated support from our team of database experts.' }
         ],
         highlight: true
     }
