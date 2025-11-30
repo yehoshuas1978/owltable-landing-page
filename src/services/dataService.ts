@@ -38,7 +38,7 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Basic monitoring', description: 'Monitor key database metrics and get alerts on potential issues.' },
             { name: 'Query tuning & alerts', description: 'Analyze query performance and get alerts on slow queries.' },
             { name: 'Query History', description: 'Keep track of every executed query, making it easy to review, re-run, or debug past actions without losing context.' },
-            { name: 'Query tuning & alerts', description: 'Quickly export your query results to industry-standard formats (CSV or JSON) for easy sharing and integration with spreadsheets or other tools.' }            
+            { name: 'Basic Export (CSV/JSON) ', description: 'Quickly export your query results to industry-standard formats (CSV or JSON) for easy sharing and integration with spreadsheets or other tools.' }            
         ]
     },
     {
@@ -67,8 +67,7 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Advanced CLI & Automation', description: 'A powerful Command-Line Interface (CLI) for deep automation and integration into infrastructure-as-code workflows.' },
             { name: 'AI-Powered SQL Tools', description: 'Includes Natural Language to SQL (Text-to-SQL) and Schema-Aware Suggestions for faster, error-free development.' },
             { name: 'Distributed Systems Support', description: 'Manage at scale with Advanced Role Management and granular access control.' }
-        ],
-        highlight: true // Assuming you want to highlight the top-tier plan
+        ]
     }    
 ];
 
