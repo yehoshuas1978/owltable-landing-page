@@ -28,7 +28,7 @@ const FAKE_USER_DATA: UserData = {
 const FAKE_PRICING_DATA: PricingPlan[] = [
     {
         name: 'Starter',
-        price: '$29',
+        price: '$19',
         period: '/user/month',
         target: 'Small teams, freelancers',
         features: [
@@ -36,7 +36,9 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Schema diff', description: 'Compare and sync database schemas between environments.' },
             { name: 'ERD visualization', description: 'Visualize your database schema as an Entity-Relationship Diagram.' },
             { name: 'Basic monitoring', description: 'Monitor key database metrics and get alerts on potential issues.' },
-            { name: 'Query tuning & alerts', description: 'Analyze query performance and get alerts on slow queries.' }
+            { name: 'Query tuning & alerts', description: 'Analyze query performance and get alerts on slow queries.' },
+            { name: 'Query History', description: 'Keep track of every executed query, making it easy to review, re-run, or debug past actions without losing context.' },
+            { name: 'Query tuning & alerts', description: 'Quickly export your query results to industry-standard formats (CSV or JSON) for easy sharing and integration with spreadsheets or other tools.' }            
         ]
     },
     {
@@ -52,7 +54,22 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Capacity planning', description: 'Forecast future database growth and plan capacity accordingly.' },
         ],
         highlight: true
-    }
+    },
+    {
+        name: 'Enterprise (Coming Soon)',
+        price: 'Custom',
+        period: '$30k–$80k/year per company',
+        target: 'Larger organizations & enterprises',
+        features: [
+            { name: 'Expanded Compatibility', description: 'Connect to virtually any database, including NoSQL (e.g., MongoDB) and major cloud databases (e.g., Amazon RDS, Azure SQL).' },
+            { name: 'Proactive Diagnostics', description: 'Receive Smart Alerts for critical issues (like disk space) and Automated Root Cause Analysis to immediately diagnose performance problems.' },
+            { name: 'Full Database Versioning', description: 'Treat your entire database as a versioned artifact, enabling complex deployment and rollback strategies.' },
+            { name: 'Advanced CLI & Automation', description: 'A powerful Command-Line Interface (CLI) for deep automation and integration into infrastructure-as-code workflows.' },
+            { name: 'AI-Powered SQL Tools', description: 'Includes Natural Language to SQL (Text-to-SQL) and Schema-Aware Suggestions for faster, error-free development.' },
+            { name: 'Distributed Systems Support', description: 'Manage at scale with Advanced Role Management and granular access control.' }
+        ],
+        highlight: true // Assuming you want to highlight the top-tier plan
+    }    
 ];
 
 export interface LicenseData {
