@@ -47,11 +47,13 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         target: 'Small to mid-sized teams',
         features: [
             { name: 'Smart Synthetic Data Generator', description: 'Smart Synthetic Data Generator allows your team to quickly and reliably populate development, staging, or testing environments with realistic, high-volume data that strictly conforms to your existing database schema.' },
+            { name: 'Schema-Aware Suggestions', description: 'The AI provides contextually relevant column and table name suggestions as you type, significantly reducing syntax errors and speeding up development.' },
+            { name: 'Query Optimization on Creation', description: 'Get immediate feedback and suggested rewrites for the SQL statement you just created, ensuring performance best practices are baked in from the start.' },
+            { name: 'Forecast Future Needs', description: 'Visualize historical data growth trends to accurately predict future storage requirements and avoid surprises.' },
+            { name: 'Resource Alerts', description: 'Receive alerts for critical issues, such as running out of disk space, before they impact your services.' },
+            { name: 'Automation', description: 'Automate Tedious TasksSimplify Backups: Schedule and automate database backups to ensure your data is always protected without manual intervention.' },
             { name: 'CI/CD integration', description: 'Integrate database changes into your CI/CD pipeline.' },
             { name: 'Powerful CLI', description: 'A full-featured Command-Line Interface (CLI) that can connect to the main application' },
-            { name: 'Advanced monitoring', description: 'Connect with external monitoring systems like OpenTelemetry for a unified view of your infrastructures health.' },
-            { name: 'Automation', description: 'Automate Tedious TasksSimplify Backups: Schedule and automate database backups to ensure your data is always protected without manual intervention.' },
-            { name: 'Capacity planning', description: 'Forecast future database growth and plan capacity accordingly.' },
             { name: 'Advanced Role Management', description: 'granular access control.' },
         ],
         highlight: true
@@ -65,10 +67,11 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Data masking & subsetting', description: 'Mask sensitive data and create smaller, representative subsets of your data for development and testing.' },
             { name: 'Expanded Compatibility', description: 'Connect to virtually any database, including NoSQL (e.g., MongoDB) and major cloud databases (e.g., Amazon RDS, Azure SQL).' },
             { name: 'Proactive Diagnostics', description: 'Receive Smart Alerts for critical issues (like disk space) and Automated Root Cause Analysis to immediately diagnose performance problems.' },
+            { name: 'Advanced monitoring', description: 'Connect with external monitoring systems like OpenTelemetry for a unified view of your infrastructures health.' },
+            { name: 'Automated Root Cause Analysis', description: 'Move beyond alerts to diagnosis. OwlTable will automatically identify the root cause of performance problems, saving you hours of troubleshooting.' },
             { name: 'Full Database Versioning', description: 'Treat your entire database as a versioned artifact, enabling complex deployment and rollback strategies.' },
-            { name: 'Advanced CLI & Automation', description: 'A powerful Command-Line Interface (CLI) for deep automation and integration into infrastructure-as-code workflows.' },
-            { name: 'AI-Powered SQL Tools', description: 'Includes Natural Language to SQL (Text-to-SQL) and Schema-Aware Suggestions for faster, error-free development.' },
             { name: 'Distributed Systems Support', description: 'Manage at scale with Advanced Role Management and granular access control.' }
+            { name: 'AI-Powered SQL Tools', description: 'Includes Natural Language to SQL (Text-to-SQL) and Schema-Aware Suggestions for faster, error-free development.' },
         ]
     }    
 ];
