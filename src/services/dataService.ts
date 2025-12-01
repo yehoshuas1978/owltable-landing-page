@@ -70,7 +70,7 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Advanced monitoring', description: 'Connect with external monitoring systems like OpenTelemetry for a unified view of your infrastructures health.' },
             { name: 'Automated Root Cause Analysis', description: 'Move beyond alerts to diagnosis. OwlTable will automatically identify the root cause of performance problems, saving you hours of troubleshooting.' },
             { name: 'Full Database Versioning', description: 'Treat your entire database as a versioned artifact, enabling complex deployment and rollback strategies.' },
-            { name: 'Distributed Systems Support', description: 'Manage at scale with Advanced Role Management and granular access control.' }
+            { name: 'Distributed Systems Support', description: 'Manage at scale with Advanced Role Management and granular access control.' },
             { name: 'AI-Powered SQL Tools', description: 'Includes Natural Language to SQL (Text-to-SQL) and Schema-Aware Suggestions for faster, error-free development.' },
         ]
     }    
