@@ -35,7 +35,6 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Edit Data on the Fly', description: 'Visually browse and edit data directly within a query result set (up to 500 records).' },            
             { name: 'Schema diff', description: 'Compare and sync database schemas between environments.' },
             { name: 'ERD visualization', description: 'Visualize your database schema as an Entity-Relationship Diagram.' },
-            { name: 'Basic monitoring', description: 'Monitor key database metrics and get alerts on potential issues.' },
             { name: 'Query tuning & alerts', description: 'Analyze query performance and get alerts on slow queries.' },
             { name: 'Query History', description: 'Keep track of every executed query, making it easy to review, re-run, or debug past actions without losing context.' },
             { name: 'Basic Export (CSV/JSON) ', description: 'Quickly export your query results to industry-standard formats (CSV or JSON) for easy sharing and integration with spreadsheets or other tools.' }            
