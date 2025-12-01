@@ -43,24 +43,27 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
     },
     {
         name: 'Pro',
-        price: '$99',
-        period: '/user/month',
-        target: 'Growing companies',
+        price: '$79',
+        period: '/user/month (up to 10 users) + $15/additional user',
+        target: 'Small to mid-sized teams',
         features: [
+            { name: 'Smart Synthetic Data Generator', description: 'Smart Synthetic Data Generator allows your team to quickly and reliably populate development, staging, or testing environments with realistic, high-volume data that strictly conforms to your existing database schema.' },
             { name: 'CI/CD integration', description: 'Integrate database changes into your CI/CD pipeline.' },
+            { name: 'Powerful CLI', description: 'A full-featured Command-Line Interface (CLI) that can connect to the main application' },
             { name: 'Advanced monitoring', description: 'Connect with external monitoring systems like OpenTelemetry for a unified view of your infrastructures health.' },
             { name: 'Automation', description: 'Automate Tedious TasksSimplify Backups: Schedule and automate database backups to ensure your data is always protected without manual intervention.' },
-            { name: 'Data masking & subsetting', description: 'Mask sensitive data and create smaller, representative subsets of your data for development and testing.' },
             { name: 'Capacity planning', description: 'Forecast future database growth and plan capacity accordingly.' },
+            { name: 'Advanced Role Management', description: 'granular access control.' },
         ],
         highlight: true
     },
     {
         name: 'Enterprise (Coming Soon)',
         price: 'Custom',
-        period: '$30k–$80k/year per company',
+        period: '$$3,000/month per company',
         target: 'Larger organizations & enterprises',
         features: [
+            { name: 'Data masking & subsetting', description: 'Mask sensitive data and create smaller, representative subsets of your data for development and testing.' },
             { name: 'Expanded Compatibility', description: 'Connect to virtually any database, including NoSQL (e.g., MongoDB) and major cloud databases (e.g., Amazon RDS, Azure SQL).' },
             { name: 'Proactive Diagnostics', description: 'Receive Smart Alerts for critical issues (like disk space) and Automated Root Cause Analysis to immediately diagnose performance problems.' },
             { name: 'Full Database Versioning', description: 'Treat your entire database as a versioned artifact, enabling complex deployment and rollback strategies.' },
