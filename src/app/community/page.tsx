@@ -170,9 +170,9 @@ ${formData.featureRequest}
                                 className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
                             >
                                 <option value="">Select plan</option>
-                                <option value="starter">Starter ($29/user/month)</option>
-                                <option value="pro">Pro ($99/user/month)</option>
-                                <option value="enterprise">Enterprise (Custom)</option>
+                                <option value="starter">Starter ($19/user/month)</option>
+                                <option value="pro">Pro ($79/user/month - up to 10 users + $15/additional user )</option>
+                                <option value="enterprise">Enterprise (Coming soon)</option>
                             </select>
                         </div>
 
