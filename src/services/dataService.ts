@@ -61,7 +61,7 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
     {
         name: 'Enterprise (Coming Soon)',
         price: 'Custom',
-        period: '$$3,000/month per company',
+        period: '$3,000/month per company',
         target: 'Larger organizations & enterprises',
         features: [
             { name: 'Data masking & subsetting', description: 'Mask sensitive data and create smaller, representative subsets of your data for development and testing.' },
