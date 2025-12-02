@@ -32,6 +32,7 @@ OwlTable operates on a hybrid client-server model that guarantees data privacy. 
 ```
 
 *   **The OwlTable Client:** This is the core application that you install and run **on your own servers**. It connects directly to your databases to perform all management, monitoring, and analysis tasks.
+    It is important to note that OwlTable runs as a web application, not a desktop application. This design choice provides significant advantages, including seamless deployment in Docker containers or headless server environments. For clients who primarily operate with desktop-only applications, OwlTable offers a modern, flexible alternative that enhances accessibility and integration within diverse IT infrastructures.
 *   **Our Cloud Services:** Our servers are **only** used for license validation and to provide secure downloads of the application. **We never have access to your database credentials, schema, or data.**
 
 This design ensures that OwlTable can be safely deployed in highly secure and regulated environments.
