@@ -32,12 +32,12 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         period: '/user/month',
         target: 'Small teams, freelancers',
         features: [
-            { name: 'Edit Data on the Fly', description: 'Visually browse and edit data directly within a query result set (up to 500 records).' },            
+            { name: 'Edit Data on the Fly', description: 'Visually browse and edit data directly within a query result set (up to 500 records).' },
             { name: 'Schema diff', description: 'Compare and sync database schemas between environments.' },
             { name: 'ERD visualization', description: 'Visualize your database schema as an Entity-Relationship Diagram.' },
-            { name: 'Query tuning & alerts', description: 'Analyze query performance and get alerts on slow queries.' },
+            { name: 'Query Optimization on Creation', description: 'Get immediate feedback and suggested rewrites for the SQL statement you just created, ensuring performance best practices are baked in from the start.' },
             { name: 'Query History', description: 'Keep track of every executed query, making it easy to review, re-run, or debug past actions without losing context.' },
-            { name: 'Basic Export (CSV/JSON) ', description: 'Quickly export your query results to industry-standard formats (CSV or JSON) for easy sharing and integration with spreadsheets or other tools.' }            
+            { name: 'Basic Export (CSV/JSON) ', description: 'Quickly export your query results to industry-standard formats (CSV or JSON) for easy sharing and integration with spreadsheets or other tools.' }
         ]
     },
     {
@@ -48,7 +48,7 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
         features: [
             { name: 'Smart Synthetic Data Generator', description: 'Smart Synthetic Data Generator allows your team to quickly and reliably populate development, staging, or testing environments with realistic, high-volume data that strictly conforms to your existing database schema.' },
             { name: 'Schema-Aware Suggestions', description: 'The AI provides contextually relevant column and table name suggestions as you type, significantly reducing syntax errors and speeding up development.' },
-            { name: 'Query Optimization on Creation', description: 'Get immediate feedback and suggested rewrites for the SQL statement you just created, ensuring performance best practices are baked in from the start.' },
+            { name: 'Query tuning & alerts', description: 'Analyze query performance and get alerts on slow queries.' },
             { name: 'Forecast Future Needs', description: 'Visualize historical data growth trends to accurately predict future storage requirements and avoid surprises.' },
             { name: 'Resource Alerts', description: 'Receive alerts for critical issues, such as running out of disk space, before they impact your services.' },
             { name: 'Automation', description: 'Automate Tedious TasksSimplify Backups: Schedule and automate database backups to ensure your data is always protected without manual intervention.' },
@@ -73,7 +73,7 @@ const FAKE_PRICING_DATA: PricingPlan[] = [
             { name: 'Distributed Systems Support', description: 'Manage at scale with Advanced Role Management and granular access control.' },
             { name: 'AI-Powered SQL Tools', description: 'Includes Natural Language to SQL (Text-to-SQL) and Schema-Aware Suggestions for faster, error-free development.' },
         ]
-    }    
+    }
 ];
 
 export interface LicenseData {
