@@ -8,4 +8,10 @@ nav:
   - Home: index.md
   - Features: features.md
   - Architecture: architecture.md
+  - OwlTable:
+      - Overview: owltable.md
+      - Masking: owltable-masking.md
+      - Subsetting: owltable-subsetting.md
+      - Synthetic Generation: owltable-synthetic.md
+      - How It Compares: owltable-comparison.md
   - Business Plan: business_plan.md
