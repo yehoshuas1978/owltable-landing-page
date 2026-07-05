@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { PostHogProvider } from '@owlmask/ui';
+import { PostHogProvider } from '@/components/PostHogProvider';
 
 export default function RootLayout({
   children,
