@@ -20,3 +20,5 @@ export const DemoButton: React.FC<DemoButtonProps> = ({ message, className, chil
     </button>
   );
 };
+
+export default DemoButton;
