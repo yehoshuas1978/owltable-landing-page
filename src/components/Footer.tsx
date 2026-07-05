@@ -10,8 +10,8 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Product</h3>
                         <ul className="space-y-2">
-                            <li><Link href="#features" className="text-gray-400 hover:text-white text-sm transition-colors">Features</Link></li>
-                            <li><Link href="#pricing" className="text-gray-400 hover:text-white text-sm transition-colors">Pricing</Link></li>
+                            <li><Link href="/#features" className="text-gray-400 hover:text-white text-sm transition-colors">Features</Link></li>
+                            <li><Link href="/#pricing" className="text-gray-400 hover:text-white text-sm transition-colors">Pricing</Link></li>
                             <li>
                                 <DemoButton
                                     message="This is a demo site. Download functionality isn't available."

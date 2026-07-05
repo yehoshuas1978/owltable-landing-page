@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Terminal, Rocket } from 'lucide-react';
+import Link from 'next/link';
 import DemoButton from './DemoButton';
 
 export default function Hero() {
@@ -39,15 +40,15 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <a href="#pricing" className="relative group overflow-hidden rounded-xl bg-blue-600 text-white font-semibold text-lg px-8 py-4 transition-all hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] flex items-center justify-center gap-3">
+                        <a href="/#pricing" className="relative group overflow-hidden rounded-xl bg-blue-600 text-white font-semibold text-lg px-8 py-4 transition-all hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] flex items-center justify-center gap-3">
                             <span className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[length:200%_auto] animate-gradient-x" />
                             <Rocket className="relative z-10 w-5 h-5" />
                             <span className="relative z-10">See Pricing & Products</span>
                         </a>
-                        <button className="glass-panel text-gray-300 font-semibold text-lg px-8 py-4 rounded-xl transition-all hover:bg-white/10 hover:text-white flex items-center justify-center gap-3 hover:border-white/20">
+                        <Link href="/docs/intro" className="glass-panel text-gray-300 font-semibold text-lg px-8 py-4 rounded-xl transition-all hover:bg-white/10 hover:text-white flex items-center justify-center gap-3 hover:border-white/20">
                             <Terminal className="w-5 h-5" />
                             <span>Read the Docs</span>
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

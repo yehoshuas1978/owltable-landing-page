@@ -48,10 +48,10 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
           <div className="flex items-center gap-6">
             {!isAuthenticated ? (
               <>
-                <Link href="https://app.owltable.net/login" className="hidden md:block text-sm font-medium text-gray-400 hover:text-white transition-colors">
+                <Link href="/login" className="hidden md:block text-sm font-medium text-gray-400 hover:text-white transition-colors">
                   Log in
                 </Link>
-                <Link href="https://app.owltable.net/signup" className="hidden md:block text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors shadow-glow-sm">
+                <Link href="/login" className="hidden md:block text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors shadow-glow-sm">
                   Sign up
                 </Link>
               </>
