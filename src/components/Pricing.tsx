@@ -80,12 +80,39 @@ const DEVELOPER_DATA = [
 const ProductsAndPricing = () => {
   const [selectedProduct, setSelectedProduct] = useState<typeof DEVELOPER_DATA[0] | null>(null);
 
+  const [platformData, setPlatformData] = useState(PLATFORM_DATA);
+  const [developerData, setDeveloperData] = useState(DEVELOPER_DATA);
+
   // Sync modal state with browser history (Back button support)
   useEffect(() => {
     const handlePopState = () => {
       setSelectedProduct(null);
     };
     window.addEventListener('popstate', handlePopState);
+
+    // Fetch live pricing from portal API
+    const fetchPricing = async () => {
+      try {
+        const response = await fetch('http://localhost:9080/api/v1/public/pricing');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.platform) {
+            setPlatformData(prev => prev.map(p => 
+              p.id === 'provisioning' ? { ...p, price: `$${data.platform.price}` } : p
+            ));
+          }
+          if (data.developer) {
+            setDeveloperData(prev => prev.map(p => 
+              p.id === 'sdk' ? { ...p, price: `$${data.developer.price}` } : p
+            ));
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch live pricing:', err);
+      }
+    };
+    fetchPricing();
+
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
@@ -124,7 +151,7 @@ const ProductsAndPricing = () => {
             The Core Platforms
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
-            {PLATFORM_DATA.map((platform) => (
+            {platformData.map((platform) => (
               <div key={platform.id} className={`bg-zinc-900/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border ${platform.borderClass} flex flex-col relative overflow-hidden transition-transform hover:-translate-y-1`}>
                 <div className={`absolute top-0 right-0 ${platform.id === 'provisioning' ? 'bg-blue-500' : 'bg-white'} ${platform.id === 'provisioning' ? 'text-white' : 'text-black'} text-xs font-bold px-4 py-1.5 rounded-bl-lg`}>
                   {platform.badge}
@@ -172,7 +199,7 @@ const ProductsAndPricing = () => {
             <span className="text-sm font-normal text-gray-500 ml-2">(Standalone Add-ons)</span>
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            {DEVELOPER_DATA.map((product) => (
+            {developerData.map((product) => (
               <div key={product.id} className={`bg-zinc-900/50 backdrop-blur-sm rounded-xl shadow-lg p-6 border ${product.borderClass} flex flex-col relative transition-colors hover:bg-zinc-900/80`}>
                 <div className="flex items-center gap-3 mb-4">
                   <product.icon className={`w-6 h-6 ${product.colorClass}`} />

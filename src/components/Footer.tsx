@@ -26,27 +26,24 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Company</h3>
                         <ul className="space-y-2">
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Careers</Link></li>
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Blog</Link></li>
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link></li>
+                            <li><Link href="/blog" className="text-gray-400 hover:text-white text-sm transition-colors">Blog</Link></li>
+                            <li><Link href="/resources" className="text-gray-400 hover:text-white text-sm transition-colors">Whitepapers & Guides</Link></li>
+                            <li><a href="mailto:founder@owlmask.com" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
                         </ul>
                     </div>
                     <div>
                         <h3 className="text-white font-semibold mb-4">Resources</h3>
                         <ul className="space-y-2">
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Community</Link></li>
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Help Center</Link></li>
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Status</Link></li>
-                            <li><Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link></li>
+                            <li><Link href="/community" className="text-gray-400 hover:text-white text-sm transition-colors">Community</Link></li>
+                            <li><Link href="/license" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service & License</Link></li>
                         </ul>
                     </div>
                     <div>
                         <h3 className="text-white font-semibold mb-4">Connect</h3>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors"><Twitter size={20} /></a>
-                            <a href="#" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Twitter size={20} /></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
                         </div>
                     </div>
                 </div>

@@ -4,8 +4,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Menu } from 'lucide-react';
 import DemoButton from './DemoButton';
+import { useState, useEffect } from 'react';
 
 export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Check for global SSO cookie session
+    fetch('http://localhost:9080/api/v1/auth/status', { credentials: 'include' })
+      .then(res => res.json())
+      .then(data => setIsAuthenticated(data.authenticated === true))
+      .catch(() => setIsAuthenticated(false));
+  }, []);
 
   return (
     <nav className={`fixed w-full z-50 glass-panel border-b border-white/5 ${withMarginTop ? 'mt-12' : ''}`}>
@@ -36,6 +46,20 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
           </div>
 
           <div className="flex items-center gap-6">
+            {!isAuthenticated ? (
+              <>
+                <Link href="https://app.owltable.net/login" className="hidden md:block text-sm font-medium text-gray-400 hover:text-white transition-colors">
+                  Log in
+                </Link>
+                <Link href="https://app.owltable.net/signup" className="hidden md:block text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors shadow-glow-sm">
+                  Sign up
+                </Link>
+              </>
+            ) : (
+              <Link href="https://app.owltable.net/dashboard" className="hidden md:block text-sm font-medium bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg transition-colors shadow-glow-sm">
+                Go to Dashboard
+              </Link>
+            )}
             <button className="text-gray-400 hover:text-blue-400 transition-colors">
               <Search size={18} />
             </button>
