@@ -30,7 +30,7 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
                 height={32}
                 className="rounded-lg shadow-glow"
               />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">OwlMask</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">OwlTable</span>
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/#features" className="text-sm font-medium text-gray-400 hover:text-white hover:text-blue-400 transition-colors">
@@ -38,6 +38,9 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
               </Link>
               <Link href="/#pricing" className="text-sm font-medium text-gray-400 hover:text-white hover:text-blue-400 transition-colors">
                 Pricing
+              </Link>
+              <Link href="/compare/delphix-alternative" className="text-sm font-medium text-gray-400 hover:text-white hover:text-blue-400 transition-colors">
+                Compare
               </Link>
               <Link href="/docs/intro" className="text-sm font-medium text-gray-400 hover:text-white hover:text-blue-400 transition-colors">
                 Documentation

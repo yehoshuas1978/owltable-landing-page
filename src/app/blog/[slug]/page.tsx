@@ -3,22 +3,32 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getArticleBySlug, articles } from '@/lib/articles';
 import JsonLd from '@/components/JsonLd';
+import SeoVideo from '@/components/SeoVideo';
 import Link from 'next/link';
+import { ArrowLeft, CalendarDays, Clock, UserRound } from 'lucide-react';
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
-// Next.js static params generation
+function MissingArticleContent({ missingComponentPath }: { missingComponentPath: string }) {
+    return (
+        <div className="rounded-lg border border-amber-300/30 bg-amber-400/10 p-6 text-amber-100">
+            Article content component not found. Please create{' '}
+            <code>{missingComponentPath}</code>
+        </div>
+    );
+}
+
 export async function generateStaticParams() {
     return articles.map((article) => ({
         slug: article.slug,
     }));
 }
 
-// Next.js dynamic metadata generation
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const article = getArticleBySlug(params.slug);
+    const { slug } = await params;
+    const article = getArticleBySlug(slug);
 
     if (!article) {
         return {
@@ -27,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     const url = `https://www.owltable.net/blog/${article.slug}`;
+    const previewImage = article.coverImage || article.videoThumbnail;
 
     return {
         title: `${article.title} | OwlTable Blog`,
@@ -40,9 +51,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             publishedTime: article.publishDate,
             authors: [article.author],
             tags: article.tags,
-            images: article.coverImage ? [
+            images: previewImage ? [
                 {
-                    url: article.coverImage,
+                    url: previewImage,
                     width: 1200,
                     height: 630,
                     alt: article.title,
@@ -53,41 +64,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             card: 'summary_large_image',
             title: article.title,
             description: article.description,
-            images: article.coverImage ? [article.coverImage] : [],
+            images: previewImage ? [previewImage] : [],
         },
     };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-    const article = getArticleBySlug(params.slug);
+    const { slug } = await params;
+    const article = getArticleBySlug(slug);
 
     if (!article) {
         notFound();
     }
 
-    // Dynamic import of the article content component
+    const articleSlug = article.slug;
+    const missingComponentPath = `src/components/articles/${articleSlug}.tsx`;
     let ContentComponent;
     try {
-        // Because of Next.js App Router rules, we use React.lazy or direct require. 
-        // For server components, direct import via await is possible if we had separate files, 
-        // but dynamic imports with string concatenation can be tricky in some Next setups.
-        // A safer approach for SEO is mapping or just a simple switch, but for now we will 
-        // use dynamic import.
-        ContentComponent = (await import(`@/components/articles/${article.slug}`)).default;
-    } catch (e) {
-        ContentComponent = () => (
-            <div style={{ padding: '2rem', backgroundColor: '#fff3cd', color: '#856404', borderRadius: '8px' }}>
-                Article content component not found. Please create <code>src/components/articles/{article.slug}.tsx</code>
-            </div>
-        );
+        ContentComponent = (await import(`@/components/articles/${articleSlug}`)).default;
+    } catch {
+        ContentComponent = MissingArticleContent;
     }
+
+    const publishedDate = new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+    }).format(new Date(article.publishDate));
 
     const articleJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: article.title,
         description: article.description,
-        image: article.coverImage ? [`https://www.owltable.net${article.coverImage}`] : [],
+        image: article.coverImage || article.videoThumbnail ? [`https://www.owltable.net${article.coverImage || article.videoThumbnail}`] : [],
         datePublished: article.publishDate,
         dateModified: article.publishDate,
         author: {
@@ -134,55 +144,85 @@ export default async function BlogPostPage({ params }: Props) {
     };
 
     return (
-        <article style={{ maxWidth: '800px', margin: '0 auto', padding: '4rem 1rem', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+        <main className="mx-auto w-full max-w-[940px] px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
             <JsonLd data={articleJsonLd} />
             <JsonLd data={breadcrumbData} />
 
-            <nav style={{ marginBottom: '2rem' }}>
-                <Link href="/blog" style={{ color: '#3182ce', textDecoration: 'none', fontWeight: '500' }}>
-                    &larr; Back to Blog
+            <nav className="mb-12">
+                <Link
+                    href="/blog"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition-colors hover:text-white"
+                >
+                    <ArrowLeft size={16} aria-hidden="true" />
+                    Back to Blog
                 </Link>
             </nav>
 
-            <header style={{ marginBottom: '3rem' }}>
-                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-                    {article.tags.map((tag) => (
-                        <span key={tag} style={{ backgroundColor: '#edf2f7', color: '#4a5568', fontSize: '0.875rem', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontWeight: '500' }}>
-                            {tag}
+            <article>
+                <header className="mb-12">
+                    <div className="mb-6 flex flex-wrap gap-2">
+                        {article.tags.map((tag) => (
+                            <span
+                                key={tag}
+                                className="rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-cyan-200"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+
+                    <h1 className="text-4xl font-bold leading-tight tracking-normal text-white sm:text-5xl">
+                        {article.title}
+                    </h1>
+
+                    <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-slate-400">
+                        <span className="inline-flex items-center gap-2 font-semibold text-slate-300">
+                            <UserRound size={16} aria-hidden="true" />
+                            {article.author}
                         </span>
-                    ))}
-                </div>
-                <h1 style={{ fontSize: '3rem', fontWeight: '800', lineHeight: 1.2, color: '#1a202c', marginBottom: '1.5rem' }}>
-                    {article.title}
-                </h1>
-                
-                <div style={{ display: 'flex', alignItems: 'center', color: '#718096', fontSize: '1rem' }}>
-                    <div style={{ fontWeight: '600', color: '#2d3748', marginRight: '1rem' }}>{article.author}</div>
-                    <time dateTime={article.publishDate}>
-                        {new Date(article.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                    </time>
-                    {article.timeToRead && (
-                        <>
-                            <span style={{ margin: '0 0.5rem' }}>&middot;</span>
-                            <span>{article.timeToRead} read</span>
-                        </>
-                    )}
-                </div>
-            </header>
+                        <time dateTime={article.publishDate} className="inline-flex items-center gap-2">
+                            <CalendarDays size={16} aria-hidden="true" />
+                            {publishedDate}
+                        </time>
+                        {article.timeToRead ? (
+                            <span className="inline-flex items-center gap-2">
+                                <Clock size={16} aria-hidden="true" />
+                                {article.timeToRead} read
+                            </span>
+                        ) : null}
+                    </div>
+                </header>
 
-            {article.coverImage && (
-                <div style={{ marginBottom: '3rem', borderRadius: '12px', overflow: 'hidden' }}>
-                    <img src={article.coverImage} alt={article.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                </div>
-            )}
+                {article.videoUrl ? (
+                    <SeoVideo
+                        title={article.videoTitle || article.title}
+                        description={article.description}
+                        uploadDate={article.publishDate}
+                        videoUrl={article.videoUrl}
+                        thumbnailUrl={article.videoThumbnail}
+                    />
+                ) : article.coverImage ? (
+                    <div
+                        className="mb-12 aspect-video rounded-lg border border-white/10 bg-slate-900 bg-cover bg-center shadow-2xl shadow-black/30"
+                        style={{ backgroundImage: `url(${article.coverImage})` }}
+                        aria-label={article.title}
+                    />
+                ) : null}
 
-            <div className="article-content" style={{ fontSize: '1.125rem', lineHeight: 1.8, color: '#2d3748' }}>
-                <ContentComponent />
-            </div>
-            
-            <footer style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid #e2e8f0', textAlign: 'center' }}>
-                <p style={{ color: '#718096' }}>Thanks for reading. Build secure test environments with <Link href="/" style={{ color: '#3182ce', textDecoration: 'none', fontWeight: '600' }}>OwlTable</Link>.</p>
-            </footer>
-        </article>
+                <div className="article-content text-lg leading-8 text-slate-300">
+                    <ContentComponent missingComponentPath={missingComponentPath} />
+                </div>
+
+                <footer className="mt-16 border-t border-white/10 pt-8 text-center">
+                    <p className="text-sm text-slate-400">
+                        Build secure test environments with{' '}
+                        <Link href="/" className="font-semibold text-cyan-300 transition-colors hover:text-white">
+                            OwlTable
+                        </Link>
+                        .
+                    </p>
+                </footer>
+            </article>
+        </main>
     );
 }

@@ -25,7 +25,7 @@ export default function Hero() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 border border-blue-500/30 rounded-full bg-blue-500/10 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                         <span className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-ping absolute opacity-75" />
                         <span className="w-2.5 h-2.5 rounded-full bg-blue-400 relative" />
-                        <span className="text-sm font-semibold text-blue-200 tracking-wide">OwlMask 1.0 is Live</span>
+                        <span className="text-sm font-semibold text-blue-200 tracking-wide">OwlTable 1.0 is Live</span>
                     </div>
 
                     <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.1] tracking-tight">

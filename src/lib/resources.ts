@@ -6,6 +6,8 @@ export type ResourceMetadata = {
     publishDate: string;
     pdfUrl: string;
     coverImage?: string;
+    readTime?: string;
+    highlights?: string[];
 };
 
 export const resources: ResourceMetadata[] = [
@@ -16,14 +18,26 @@ export const resources: ResourceMetadata[] = [
         type: 'Whitepaper',
         publishDate: '2026-07-05T08:00:00Z',
         pdfUrl: '/documents/whitepaper-data-masking.pdf',
+        readTime: '18 min read',
+        highlights: [
+            'Data discovery and classification workflow',
+            'Masking strategy comparison by use case',
+            'Governance checklist for lower environments',
+        ],
     },
     {
         slug: 'achieving-compliance-data-obfuscation',
-        title: 'Achieving SOC2 and HIPAA Compliance with Data Obfuscation',
+        title: 'Achieving SOC 2 and HIPAA Compliance with Data Obfuscation',
         description: 'A deep dive into building a continuous compliance pipeline by substituting sensitive production data with masked data.',
         type: 'Guide',
         publishDate: '2026-07-02T09:00:00Z',
         pdfUrl: '/documents/guide-to-compliance.pdf',
+        readTime: '12 min read',
+        highlights: [
+            'Audit-friendly control mapping',
+            'Least-privilege test data access model',
+            'Operational rollout checklist',
+        ],
     }
 ];
 
