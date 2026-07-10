@@ -3,21 +3,21 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.owltable.net'),
+  metadataBase: new URL('https://www.owlmask.com'),
   title: {
-    default: "OwlTable - The Capable Database Management Tool & SQL Client",
-    template: "%s | OwlTable"
+    default: "OwlMask | Safe data provisioning with OwlTable",
+    template: "%s | OwlMask"
   },
-  description: "A powerful, ergonomic database management tool and SQL client designed for performance and developer productivity. Manage Your Data with Ease.",
-  keywords: ["OwlTable", "Owl Table", "owl-table", "Database Management", "SQL Client", "Postgres", "MySQL", "Database Tool"],
+  description: "OwlTable is the Jobs-first data provisioning platform in the OwlMask ecosystem, with masking, subsetting, validation evidence, and developer automation.",
+  keywords: ["OwlMask", "OwlTable", "data provisioning", "data masking", "database subsetting", "PostgreSQL", "MySQL", "SQL Server"],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "OwlTable - The Capable Database Management Tool",
-    description: "Manage Your Data with Ease. A powerful SQL client for modern developers.",
-    url: 'https://www.owltable.net',
-    siteName: 'OwlTable',
+    title: "OwlMask | Safe data provisioning with OwlTable",
+    description: "Provision realistic, protected test data with OwlTable and the OwlMask ecosystem.",
+    url: 'https://www.owlmask.com',
+    siteName: 'OwlMask',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
         url: '/opengraph-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'OwlTable - Database Management Tool',
+        alt: 'OwlMask and OwlTable data provisioning platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "OwlTable",
-    description: "Manage Your Data with Ease. The capable database management tool.",
+    title: "OwlMask | Safe data provisioning with OwlTable",
+    description: "Provision realistic, protected test data with OwlTable and the OwlMask ecosystem.",
   },
   verification: {
     google: 'RtbKq0_ovAEwfOmovJpnTFTP_m_dgz7eEAgsFdlKVy8',
@@ -81,24 +81,17 @@ export default function RootLayout({
                   "price": "0",
                   "priceCurrency": "USD"
                 },
-                "description": "A powerful, ergonomic database management tool and SQL client designed for performance and developer productivity. Supports PostgreSQL, MySQL, SQL Server, and more.",
-                "url": "https://www.owltable.net",
+                "description": "A Jobs-first data provisioning platform for protected, realistic test databases with masking, subsetting, readiness assessment, and validation evidence.",
+                "url": "https://www.owlmask.com",
                 "author": {
                   "@type": "Organization",
                   "name": "OwlTable"
                 },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.8",
-                  "ratingCount": "127"
-                },
                 "featureList": [
-                  "Multi-database support (PostgreSQL, MySQL, SQL Server)",
-                  "Advanced SQL editor with syntax highlighting",
-                  "Data visualization and export",
-                  "Secure SSH tunneling and SSL/TLS encryption",
-                  "Schema management and migrations",
-                  "Performance monitoring"
+                  "Database provisioning jobs",
+                  "Data masking and relational subsetting",
+                  "Readiness assessment and validation evidence",
+                  "PostgreSQL, MySQL, and SQL Server support"
                 ]
               })
             }}

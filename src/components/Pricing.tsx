@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const PLATFORM_DATA = [
   {
     id: 'provisioning',
-    name: 'OwlTable Provisioning UI',
+    name: 'OwlTable Data Provisioning Platform',
     icon: Database,
     price: '$299',
     period: '/ month',
@@ -16,12 +16,12 @@ const PLATFORM_DATA = [
     borderClass: 'border-blue-500/50',
     bgClass: 'bg-blue-600',
     badge: 'MOST POPULAR',
-    whatItDoes: 'A beautiful, enterprise-grade web UI allowing DBAs to safely clone, subset, and mask databases without writing a single line of code. Includes the Core SDK engine under the hood.',
-    advantage: 'Combines advanced relational subsetting with masking in a single, easy-to-use platform that costs 80% less than legacy enterprise tools.'
+    whatItDoes: 'The operational home for data teams: plan Jobs, assess readiness, provision targets, mask sensitive values, subset relational data, and review validation evidence.',
+    advantage: 'A complete Jobs-first workflow for dependable test data, without forcing teams to stitch together separate provisioning, masking, and verification tools.'
   },
   {
     id: 'ultimate',
-    name: 'OwlMask Ultimate Suite',
+    name: 'OwlMask Complete Suite',
     icon: Shield,
     price: '$399',
     period: '/ month',
@@ -30,15 +30,15 @@ const PLATFORM_DATA = [
     borderClass: 'border-white/20',
     bgClass: 'bg-white text-black',
     badge: 'COMPLETE ECOSYSTEM',
-    whatItDoes: 'The entire ecosystem. You get the OwlTable Platform UI for your DBAs, plus the headless SDKs, local LLMs, and Autonomous Agents for your Engineering teams.',
-    advantage: 'One unified platform. Gives Data Platform teams a powerful provisioning UI, while simultaneously giving Engineering teams total automation autonomy.'
+    whatItDoes: 'OwlTable for data operations, plus the headless SDKs, local AI masking capabilities, and engineering automation tools in the broader OwlMask ecosystem.',
+    advantage: 'One consistent safety model for data platform teams, application engineers, and the automation that connects their workflows.'
   }
 ];
 
 const DEVELOPER_DATA = [
   {
     id: 'sdk',
-    name: 'Core SDK',
+    name: 'OwlMask Core SDK',
     icon: Code,
     price: '$49',
     period: '/ month',
@@ -46,12 +46,12 @@ const DEVELOPER_DATA = [
     colorClass: 'text-purple-400',
     borderClass: 'border-purple-500/30',
     btnClass: 'bg-purple-500/10 text-purple-400 hover:bg-purple-500/20',
-    whatItDoes: 'The core data masking engine, available as an embeddable SDK or via its built-in standalone UI. It includes 100+ deterministic masking algorithms.',
-    advantage: 'Legacy competitors (like Delphix) require deploying heavy, expensive VMs. Our SDK runs instantly inside your environment with zero infrastructure overhead.'
+    whatItDoes: 'Embeddable data-masking capabilities for teams that want to put privacy controls directly into their own services and pipelines.',
+    advantage: 'Bring the same data-safety intent into code-driven workflows alongside the OwlTable operational platform.'
   },
   {
     id: 'ai',
-    name: 'AI SDK Suite',
+    name: 'OwlMask AI Suite',
     icon: Zap,
     price: '$99',
     period: '/ month',
@@ -59,12 +59,12 @@ const DEVELOPER_DATA = [
     colorClass: 'text-amber-400',
     borderClass: 'border-amber-500/30',
     btnClass: 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20',
-    whatItDoes: 'The Core SDK bundled with our fine-tuned, local generative LLMs for intelligently masking unstructured free-text columns.',
-    advantage: 'Competing AI masking tools send your sensitive data to OpenAI. Our LLM runs 100% locally on your hardware. Your PII never leaves your VPC.'
+    whatItDoes: 'Core masking tools with local generative capabilities for sensitive, unstructured free-text data.',
+    advantage: 'Extend structured-data controls into text-heavy systems while keeping the workflow close to your environment.'
   },
   {
     id: 'agent',
-    name: 'Coding Agent',
+    name: 'OwlMask Automation Agent',
     icon: GitBranch,
     price: '$149',
     period: '/ month',
@@ -72,8 +72,8 @@ const DEVELOPER_DATA = [
     colorClass: 'text-emerald-400',
     borderClass: 'border-emerald-500/30',
     btnClass: 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20',
-    whatItDoes: 'An AI agent that automatically scans your database schemas, detects sensitive columns, and writes the YAML masking configurations for you.',
-    advantage: 'Eliminates the hundreds of hours DBAs spend manually mapping columns. It does the mapping in minutes, completely autonomously.'
+    whatItDoes: 'Automation to inspect schemas, identify sensitive-data candidates, and accelerate masking configuration work.',
+    advantage: 'Reduce repetitive setup work while retaining review and control over the policy that reaches production-shaped data.'
   }
 ];
 
@@ -140,7 +140,7 @@ const ProductsAndPricing = () => {
             The OwlMask Ecosystem
           </h2>
           <p className="mt-4 text-xl text-gray-400 max-w-3xl mx-auto">
-            Brutally honest, transparent startup pricing. Find the exact package you need, request a trial, and test it on your own hardware before paying a dime.
+            Start with OwlTable for governed data provisioning, then add the OwlMask capabilities your engineering workflow needs.
           </p>
         </div>
 
@@ -148,7 +148,7 @@ const ProductsAndPricing = () => {
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
             <Database className="w-6 h-6 text-blue-400" />
-            The Core Platforms
+            Start with OwlTable
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
             {platformData.map((platform) => (
@@ -195,8 +195,8 @@ const ProductsAndPricing = () => {
         <div>
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
             <Code className="w-6 h-6 text-purple-400" />
-            Developer & AI Tools
-            <span className="text-sm font-normal text-gray-500 ml-2">(Standalone Add-ons)</span>
+            Extend with OwlMask
+            <span className="text-sm font-normal text-gray-500 ml-2">SDK, AI, and automation</span>
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {developerData.map((product) => (
