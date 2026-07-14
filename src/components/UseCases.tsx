@@ -15,7 +15,7 @@ const useCases = [
     {
         icon: TrendingUp,
         title: 'Software Engineers',
-        description: 'Embed the OwlMask Core SDK directly into your data pipelines and Java/Next.js applications for headless, programmatic data masking.',
+        description: 'Embed the OwlMask SDK directly into your data pipelines and Java/Next.js applications for headless, programmatic data masking.',
         benefits: ['Headless API access', 'Custom integrations', 'High throughput'],
         color: 'from-purple-500 to-pink-600',
         dotColor: 'bg-purple-400'
@@ -23,7 +23,7 @@ const useCases = [
     {
         icon: Lock,
         title: 'Security & AI Teams',
-        description: 'Leverage our fine-tuned local LLMs to perform generative masking on unstructured free-text columns without sending data to OpenAI.',
+        description: 'Leverage OwlMask LLM — fine-tuned local models — for generative masking of unstructured free-text columns without sending data to any external AI API.',
         benefits: ['Local execution', 'Generative context', 'PHI/PII detection'],
         color: 'from-emerald-500 to-teal-600',
         dotColor: 'bg-emerald-400'
@@ -31,7 +31,7 @@ const useCases = [
     {
         icon: Workflow,
         title: 'DevOps & Automation',
-        description: 'Let the Autonomous Coding Agent scan your CI/CD databases and automatically generate and test the YAML masking configuration files.',
+        description: 'Let OwlMask Code — the autonomous coding agent — scan your CI/CD databases and automatically generate and test the YAML masking configuration files.',
         benefits: ['Zero-touch config', 'Schema discovery', 'Automated testing'],
         color: 'from-amber-500 to-orange-600',
         dotColor: 'bg-amber-400'

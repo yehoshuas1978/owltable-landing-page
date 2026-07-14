@@ -7,7 +7,19 @@ export default function HowDataMaskingProtectsYourBusiness() {
             <p className="text-xl leading-9 text-slate-300">
                 In today&apos;s interconnected digital landscape, protecting sensitive information is no longer optional. Every day, enterprises collect vast amounts of data, much of it personally identifiable information or sensitive corporate intelligence.
             </p>
-            
+
+            <h2 className="mt-6 text-3xl font-bold tracking-normal text-white">Video Chapters</h2>
+            <ul className="flex list-disc flex-col gap-3 pl-6 text-slate-300">
+                <li><strong>00:00 — Why masking matters:</strong> Production-grade data with test-grade security.</li>
+                <li><strong>00:14 — The exposure map:</strong> How one database becomes five unprotected copies.</li>
+                <li><strong>00:56 — Compliance follows the data:</strong> GDPR, HIPAA, PCI DSS, and SOC 2 reach non-production too.</li>
+                <li><strong>01:30 — Strip vs. synthetic vs. masking:</strong> Why masking wins for realistic test databases.</li>
+                <li><strong>01:56 — How masking works:</strong> Format-preserving, safe stand-ins for every sensitive value.</li>
+                <li><strong>02:42 — Guardrails:</strong> Readiness assessments and server-side blockers before any run.</li>
+                <li><strong>03:24 — Validation and evidence:</strong> Re-scans that prove zero PII, packaged for auditors.</li>
+                <li><strong>04:24 — The checklist:</strong> Five practices to take to your team.</li>
+            </ul>
+
             <h2 className="mt-6 text-3xl font-bold tracking-normal text-white">What is Data Masking?</h2>
             <p className="text-slate-300">
                 Data masking, also known as data obfuscation, is the process of hiding original data with modified content (characters or other data). The main objective is to create a structural version that looks similar and can be used for purposes like software testing and user training, all while protecting the actual data.

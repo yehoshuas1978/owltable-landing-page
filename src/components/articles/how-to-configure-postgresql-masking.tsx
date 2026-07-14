@@ -9,12 +9,16 @@ export default function HowToConfigurePostgresqlMasking() {
                 This guide covers how to connect PostgreSQL databases to OwlMask and configure robust masking rules for sensitive columns.
             </p>
 
-            <h2 className="mt-6 text-3xl font-bold tracking-normal text-white">Configuration Steps</h2>
+            <h2 className="mt-6 text-3xl font-bold tracking-normal text-white">Video Chapters — the 11 Steps</h2>
             <ul className="flex list-disc flex-col gap-3 pl-6 text-slate-300">
-                <li><strong>PostgreSQL overview:</strong> What OwlMask needs from a source database connection.</li>
-                <li><strong>Database connection:</strong> Setting up the PostgreSQL connection string and credentials.</li>
-                <li><strong>Schema discovery:</strong> Scanning your database for PII and sensitive fields.</li>
-                <li><strong>Applying masking rules:</strong> Choosing the right masking algorithms for emails, names, and credit cards.</li>
+                <li><strong>00:14 — Prerequisites:</strong> A read-only role is the only PostgreSQL setup you need.</li>
+                <li><strong>00:32 — Step 1, Connect:</strong> Host, port, database, user, and SSL mode for source and target.</li>
+                <li><strong>00:56 — Step 2, Scan the schema:</strong> Tables, row estimates, foreign keys, sequences, constraints.</li>
+                <li><strong>01:18 — Steps 3–4, Discover and review PII:</strong> Classification with confidence scores, including jsonb columns.</li>
+                <li><strong>02:02 — Step 5, Build the masking profile:</strong> Synthetic, format-preserving, and deterministic rules per column.</li>
+                <li><strong>02:30 — Steps 6–7, Integrity and constraints:</strong> FK remapping, uniqueness, NOT NULL, and sequences preserved.</li>
+                <li><strong>03:08 — Steps 8–9, Readiness and run:</strong> The gated job streaming three million rows to the target.</li>
+                <li><strong>03:54 — Steps 10–11, Verify and validate:</strong> psql spot-checks, then a full PII re-scan with zero findings.</li>
             </ul>
 
             <section className="mt-8 border-t border-white/10 pt-8">

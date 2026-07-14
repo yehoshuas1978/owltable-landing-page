@@ -9,6 +9,7 @@ export type ArticleMetadata = {
     videoUrl?: string;
     videoTitle?: string;
     videoThumbnail?: string;
+    videoDuration?: string; // ISO 8601 duration, e.g., 'PT2M42S'
     externalVideoUrl?: string;
     externalVideoTitle?: string;
     timeToRead?: string;
@@ -22,9 +23,10 @@ export const articles: ArticleMetadata[] = [
         author: 'OwlTable Security Team',
         publishDate: '2026-07-01T10:00:00Z',
         tags: ['Video', 'Security', 'Data Masking'],
-        videoUrl: '/videos/data-masking-breaches.mp4',
-        videoTitle: 'OwlTable Data Masking Security Overview',
-        videoThumbnail: '/videos/data-masking-breaches.jpg',
+        videoUrl: '/videos/data-masking-security-deepdive.mp4',
+        videoTitle: 'How Data Masking Protects Your Business — Security Deep-Dive',
+        videoThumbnail: '/videos/data-masking-security-deepdive.jpg',
+        videoDuration: 'PT5M',
         externalVideoUrl: 'https://www.youtube.com/embed/y9tPEzSZXmg',
         externalVideoTitle: 'Data Masking - Getting Started Tutorial | Enterprise Test Data',
         timeToRead: '5 min',
@@ -36,9 +38,10 @@ export const articles: ArticleMetadata[] = [
         author: 'OwlTable Product Team',
         publishDate: '2026-07-05T09:00:00Z',
         tags: ['Video', 'Tutorial', 'Product'],
-        videoUrl: '/videos/owlmask-product-walkthrough.mp4',
-        videoTitle: 'OwlMask Product Walkthrough',
-        videoThumbnail: '/videos/owlmask-product-walkthrough.jpg',
+        videoUrl: '/videos/owlmask-masking-explainer.mp4',
+        videoTitle: 'How Data Masking Works in OwlMask — Full Walkthrough',
+        videoThumbnail: '/videos/owlmask-masking-explainer.jpg',
+        videoDuration: 'PT2M42S',
         externalVideoUrl: 'https://www.youtube.com/embed/hn7m3ihiQwE',
         externalVideoTitle: 'Data Masking - Default Rules Tutorial | Enterprise Test Data',
         timeToRead: '10 min',
@@ -50,9 +53,10 @@ export const articles: ArticleMetadata[] = [
         author: 'OwlTable Engineering Team',
         publishDate: '2026-07-08T09:00:00Z',
         tags: ['Video', 'Tutorial', 'PostgreSQL'],
-        videoUrl: '/videos/postgresql-masking.mp4',
-        videoTitle: 'OwlTable PostgreSQL Masking Walkthrough',
-        videoThumbnail: '/videos/postgresql-masking.jpg',
+        videoUrl: '/videos/postgresql-masking-tutorial.mp4',
+        videoTitle: 'Mask a PostgreSQL Database with OwlMask — Step-by-Step Tutorial',
+        videoThumbnail: '/videos/postgresql-masking-tutorial.jpg',
+        videoDuration: 'PT5M',
         externalVideoUrl: 'https://www.youtube.com/embed/niIIFL4s-L8',
         externalVideoTitle: 'Anonymization and Data Masking for PostgreSQL',
         timeToRead: '8 min',
@@ -64,9 +68,10 @@ export const articles: ArticleMetadata[] = [
         author: 'OwlTable Product Team',
         publishDate: '2026-07-09T10:00:00Z',
         tags: ['Video', 'Product', 'Release'],
-        videoUrl: '/videos/owlmask-feature-overview.mp4',
-        videoTitle: 'OwlMask 2.0 Feature Overview',
-        videoThumbnail: '/videos/owlmask-feature-overview.jpg',
+        videoUrl: '/videos/owltable-feature-tour.mp4',
+        videoTitle: 'OwlTable in Five Minutes — Platform Feature Tour',
+        videoThumbnail: '/videos/owltable-feature-tour.jpg',
+        videoDuration: 'PT5M',
         externalVideoUrl: 'https://www.youtube.com/embed/s7tHhyxuXg4',
         externalVideoTitle: 'Dynamic Data Masking & Encryption for MySQL/PostgreSQL',
         timeToRead: '12 min',

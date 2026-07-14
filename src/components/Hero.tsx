@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Database, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Database, PlayCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 const workflowSteps = [
@@ -36,13 +36,16 @@ export default function Hero() {
             <strong className="font-semibold text-white">OwlTable</strong> gives data teams a clear, governed way to provision realistic test databases—then OwlMask SDKs, local AI, and automation extend that control into engineering workflows.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#owltable" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-blue-500 px-6 py-3.5 font-semibold text-white transition hover:bg-blue-400 hover:shadow-[0_0_34px_rgba(59,130,246,.4)]">
-              Explore OwlTable <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a href="mailto:founder@owlmask.com?subject=OwlTable%20guided%20trial" className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.03] px-6 py-3.5 font-semibold text-slate-100 transition hover:border-white/30 hover:bg-white/[0.08]">
-              Request a guided trial
+            <Link href="/get-started" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-blue-500 px-6 py-3.5 font-semibold text-white transition hover:bg-blue-400 hover:shadow-[0_0_34px_rgba(59,130,246,.4)]">
+              Get started in 15 minutes <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <a href="#videos" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.03] px-6 py-3.5 font-semibold text-slate-100 transition hover:border-white/30 hover:bg-white/[0.08]">
+              <PlayCircle className="h-5 w-5 text-cyan-300" /> Watch the 2:42 demo
             </a>
           </div>
+          <a href="#owltable" className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-blue-300 transition hover:text-blue-200">
+            Or explore OwlTable — the flagship platform <ArrowRight className="h-3.5 w-3.5" />
+          </a>
           <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
             <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-400" /> Jobs-first workflow</span>
             <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-emerald-400" /> Readiness before execution</span>

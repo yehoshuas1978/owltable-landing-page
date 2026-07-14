@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Database, Zap, Shield, Code, GitBranch, BarChart3, LockKeyhole, Search, ArrowRight } from 'lucide-react';
+import { Database, Zap, Shield, Code, GitBranch, ArrowRight } from 'lucide-react';
 
 const features = [
     {
@@ -14,7 +14,7 @@ const features = [
     },
     {
         icon: Code,
-        title: 'OwlMask Core SDK',
+        title: 'OwlMask SDK',
         description: 'Headless SDK capabilities for extending privacy controls into CI/CD and application workflows.',
         className: 'md:col-span-1 md:row-span-1 glass-card p-6 bg-black/40 hover:bg-[#1a1f2e]/60',
         iconBg: 'bg-purple-500/20 text-purple-400',
@@ -22,16 +22,16 @@ const features = [
     },
     {
         icon: Zap,
-        title: 'OwlMask AI & LLMs',
-        description: 'Local AI capabilities for applying data-safety controls to unstructured free-text columns.',
+        title: 'OwlMask LLM',
+        description: 'Local AI capabilities for applying data-safety controls to unstructured free-text columns — nothing leaves your network.',
         className: 'md:col-span-1 md:row-span-1 glass-card p-6 bg-black/40 hover:bg-[#1a1f2e]/60',
         iconBg: 'bg-amber-500/20 text-amber-400',
         large: false
     },
     {
         icon: GitBranch,
-        title: 'Autonomous Coding Agent',
-        description: 'Automation that helps teams inspect schemas and accelerate policy configuration work.',
+        title: 'OwlMask Code',
+        description: 'An autonomous coding agent that inspects schemas and accelerates masking policy configuration.',
         className: 'md:col-span-1 md:row-span-1 glass-card p-6 bg-black/40 hover:bg-[#1a1f2e]/60',
         iconBg: 'bg-emerald-500/20 text-emerald-400',
         large: false

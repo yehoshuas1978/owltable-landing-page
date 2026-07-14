@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Shield, Zap, DollarSign, CheckCircle2, XCircle } from 'lucide-react';
 import type { Metadata } from 'next';
+import CompareLinks from '@/components/CompareLinks';
 
 export const metadata: Metadata = {
     title: 'OwlTable vs. Delphix | The Modern Data Masking Alternative',
@@ -128,9 +129,9 @@ export default function CompareDelphix() {
                     </div>
                     <div className="bg-zinc-900/40 border border-zinc-800 p-8 rounded-2xl hover:bg-zinc-900/60 transition-colors">
                         <DollarSign className="w-10 h-10 text-blue-400 mb-6" />
-                        <h3 className="text-2xl font-bold mb-4">80% Cheaper</h3>
+                        <h3 className="text-2xl font-bold mb-4">A Price You Can Read</h3>
                         <p className="text-gray-400 leading-relaxed">
-                            Legacy tools charge by the terabyte, punishing you for scaling. We charge a flat, predictable monthly rate per installation. Predictable pricing for the modern enterprise.
+                            Legacy tools charge by the terabyte, punishing you for scaling. OwlTable is a flat, published monthly rate per installation — $299 for the platform, on the pricing page, no sales call required.
                         </p>
                     </div>
                 </div>
@@ -140,13 +141,15 @@ export default function CompareDelphix() {
                     <div className="relative z-10">
                         <h2 className="text-4xl font-bold mb-6">Ready to make the switch?</h2>
                         <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                            Join the engineering teams who are migrating from legacy masking platforms to OwlTable's modern, developer-first ecosystem.
+                            See the whole workflow run on your own machine in 15 minutes — masking, integrity checks, and an auditor-ready evidence pack — before you talk to anyone.
                         </p>
-                        <Link href="/#pricing" className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl transition-transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)]">
-                            View Pricing & Request Trial
+                        <Link href="/get-started" className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl transition-transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                            Get started in 15 minutes
                         </Link>
                     </div>
                 </div>
+
+                <CompareLinks current="delphix-alternative" />
             </div>
         </main>
     );

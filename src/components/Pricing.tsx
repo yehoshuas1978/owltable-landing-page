@@ -15,7 +15,7 @@ const PLATFORM_DATA = [
     colorClass: 'text-blue-400',
     borderClass: 'border-blue-500/50',
     bgClass: 'bg-blue-600',
-    badge: 'MOST POPULAR',
+    badge: 'FLAGSHIP',
     whatItDoes: 'The operational home for data teams: plan Jobs, assess readiness, provision targets, mask sensitive values, subset relational data, and review validation evidence.',
     advantage: 'A complete Jobs-first workflow for dependable test data, without forcing teams to stitch together separate provisioning, masking, and verification tools.'
   },
@@ -38,7 +38,7 @@ const PLATFORM_DATA = [
 const DEVELOPER_DATA = [
   {
     id: 'sdk',
-    name: 'OwlMask Core SDK',
+    name: 'OwlMask SDK',
     icon: Code,
     price: '$49',
     period: '/ month',
@@ -51,7 +51,7 @@ const DEVELOPER_DATA = [
   },
   {
     id: 'ai',
-    name: 'OwlMask AI Suite',
+    name: 'OwlMask LLM',
     icon: Zap,
     price: '$99',
     period: '/ month',
@@ -64,7 +64,7 @@ const DEVELOPER_DATA = [
   },
   {
     id: 'agent',
-    name: 'OwlMask Automation Agent',
+    name: 'OwlMask Code',
     icon: GitBranch,
     price: '$149',
     period: '/ month',
@@ -90,10 +90,13 @@ const ProductsAndPricing = () => {
     };
     window.addEventListener('popstate', handlePopState);
 
-    // Fetch live pricing from portal API
+    // Fetch live pricing from the portal API when one is configured (e.g.
+    // local dev with NEXT_PUBLIC_PORTAL_URL). Static fallback prices otherwise.
+    const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL;
     const fetchPricing = async () => {
+      if (!portalUrl) return;
       try {
-        const response = await fetch('http://localhost:9080/api/v1/public/pricing');
+        const response = await fetch(`${portalUrl}/api/v1/public/pricing`);
         if (response.ok) {
           const data = await response.json();
           if (data.platform) {

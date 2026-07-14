@@ -12,7 +12,8 @@ export default function AnnouncementBanner({ isVisible, onClose }: { isVisible: 
                 <div className="flex items-center gap-3">
                     <AlertCircle className="w-5 h-5 flex-shrink-0" />
                     <p className="text-sm md:text-base font-medium">
-                        <span className="font-bold">OwlTable guided trials:</span> explore safe data provisioning with the OwlMask team on your own infrastructure.
+                        <span className="font-bold">New:</span> chaptered video explainers — how masking works, the PostgreSQL tutorial, and the full platform tour.{' '}
+                        <a href="/#videos" className="font-semibold underline underline-offset-2 hover:text-blue-100">Watch now</a>
                     </p>
                 </div>
                 <button

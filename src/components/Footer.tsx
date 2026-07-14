@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { Github, Twitter, Linkedin } from 'lucide-react';
-import DemoButton from './DemoButton'; // Import the new DemoButton component
+import { Mail, PlayCircle, FileText } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -10,15 +9,15 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Product</h3>
                         <ul className="space-y-2">
+                            <li><Link href="/get-started" className="text-gray-400 hover:text-white text-sm transition-colors">Get started</Link></li>
                             <li><Link href="/#features" className="text-gray-400 hover:text-white text-sm transition-colors">Features</Link></li>
+                            <li><Link href="/#videos" className="text-gray-400 hover:text-white text-sm transition-colors">Videos</Link></li>
+                            <li><Link href="/#faq" className="text-gray-400 hover:text-white text-sm transition-colors">FAQ</Link></li>
                             <li><Link href="/#pricing" className="text-gray-400 hover:text-white text-sm transition-colors">Pricing</Link></li>
                             <li>
-                                <DemoButton
-                                    message="This is a demo site. Download functionality isn't available."
-                                    className="text-gray-400 hover:text-white text-sm transition-colors"
-                                >
-                                    Download
-                                </DemoButton>
+                                <a href="mailto:founder@owlmask.com?subject=Eval%20bundle%20request" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                    Request eval bundle
+                                </a>
                             </li>
                             <li><Link href="/docs/intro" className="text-gray-400 hover:text-white text-sm transition-colors">Documentation</Link></li>
                         </ul>
@@ -40,11 +39,23 @@ export default function Footer() {
                     </div>
                     <div>
                         <h3 className="text-white font-semibold mb-4">Connect</h3>
-                        <div className="flex space-x-4">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Github size={20} /></a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Twitter size={20} /></a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
-                        </div>
+                        <ul className="space-y-2">
+                            <li>
+                                <a href="mailto:founder@owlmask.com" className="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-colors">
+                                    <Mail size={15} /> founder@owlmask.com
+                                </a>
+                            </li>
+                            <li>
+                                <Link href="/#videos" className="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-colors">
+                                    <PlayCircle size={15} /> Watch the demos
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/resources" className="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-colors">
+                                    <FileText size={15} /> Guides & whitepapers
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 

@@ -28,6 +28,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly',
             priority: 0.8,
         },
+        {
+            url: 'https://www.owltable.net/get-started',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        ...['delphix-alternative', 'tonic-alternative', 'diy-masking-scripts'].map((slug) => ({
+            url: `https://www.owltable.net/compare/${slug}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.8,
+        })),
         ...blogUrls,
     ]
 }

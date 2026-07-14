@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.owlmask.com'),
+  metadataBase: new URL('https://www.owltable.net'),
   title: {
     default: "OwlMask | Safe data provisioning with OwlTable",
     template: "%s | OwlMask"
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "OwlMask | Safe data provisioning with OwlTable",
     description: "Provision realistic, protected test data with OwlTable and the OwlMask ecosystem.",
-    url: 'https://www.owlmask.com',
+    url: 'https://www.owltable.net',
     siteName: 'OwlMask',
     locale: 'en_US',
     type: 'website',
@@ -55,13 +55,33 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "OwlMask",
+                "url": "https://www.owltable.net",
+                "logo": "https://www.owltable.net/owltable-logo.jpg",
+                "email": "founder@owlmask.com",
+                "description": "OwlMask builds the OwlTable data provisioning platform and the OwlMask SDK, LLM, and Code tools for safe, realistic test data.",
+                "brand": [
+                  { "@type": "Brand", "name": "OwlTable" },
+                  { "@type": "Brand", "name": "OwlMask SDK" },
+                  { "@type": "Brand", "name": "OwlMask LLM" },
+                  { "@type": "Brand", "name": "OwlMask Code" }
+                ]
+              })
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
-                "name": "OwlMask Suite",
-                "operatingSystem": "Web",
+                "name": "OwlMask Complete Suite",
+                "operatingSystem": "Windows, macOS, Linux",
                 "applicationCategory": "DeveloperApplication",
                 "offers": {
                   "@type": "Offer",
-                  "price": "1000.00",
+                  "price": "399.00",
                   "priceCurrency": "USD"
                 }
               })
@@ -78,14 +98,14 @@ export default function RootLayout({
                 "operatingSystem": "Windows, macOS, Linux",
                 "offers": {
                   "@type": "Offer",
-                  "price": "0",
+                  "price": "299.00",
                   "priceCurrency": "USD"
                 },
                 "description": "A Jobs-first data provisioning platform for protected, realistic test databases with masking, subsetting, readiness assessment, and validation evidence.",
-                "url": "https://www.owlmask.com",
+                "url": "https://www.owltable.net",
                 "author": {
                   "@type": "Organization",
-                  "name": "OwlTable"
+                  "name": "OwlMask"
                 },
                 "featureList": [
                   "Database provisioning jobs",

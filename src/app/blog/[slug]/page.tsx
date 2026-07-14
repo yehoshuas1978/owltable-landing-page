@@ -200,6 +200,7 @@ export default async function BlogPostPage({ params }: Props) {
                         uploadDate={article.publishDate}
                         videoUrl={article.videoUrl}
                         thumbnailUrl={article.videoThumbnail}
+                        duration={article.videoDuration}
                     />
                 ) : article.coverImage ? (
                     <div

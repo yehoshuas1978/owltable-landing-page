@@ -6,8 +6,13 @@ import Hero from '@/components/Hero';
 import AnnouncementBanner from '@/components/AnnouncementBanner';
 import ProductsAndPricing from '@/components/Pricing';
 import OwlTableSpotlight from '@/components/OwlTableSpotlight';
+import TrustBar from '@/components/TrustBar';
+import VideoShowcase from '@/components/VideoShowcase';
 import Features from '@/components/Features';
 import UseCases from '@/components/UseCases';
+import FAQ from '@/components/FAQ';
+import EarlyAccess from '@/components/EarlyAccess';
+import FinalCTA from '@/components/FinalCTA';
 
 
 export default function Home() {
@@ -18,10 +23,15 @@ export default function Home() {
       <AnnouncementBanner isVisible={isBannerVisible} onClose={() => setIsBannerVisible(false)} />
       <Navbar withMarginTop={isBannerVisible} />
       <Hero />
+      <TrustBar />
       <OwlTableSpotlight />
+      <VideoShowcase />
       <Features />
       <UseCases />
       <ProductsAndPricing />
+      <FAQ />
+      <EarlyAccess />
+      <FinalCTA />
     </main>
   );
 }

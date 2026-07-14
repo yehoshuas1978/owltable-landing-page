@@ -10,9 +10,10 @@ type SeoVideoProps = {
     uploadDate?: string;
     videoUrl?: string;
     thumbnailUrl?: string;
+    duration?: string; // ISO 8601 duration, e.g., 'PT2M42S'
 };
 
-export default function SeoVideo({ title, description, uploadDate, videoUrl, thumbnailUrl }: SeoVideoProps) {
+export default function SeoVideo({ title, description, uploadDate, videoUrl, thumbnailUrl, duration }: SeoVideoProps) {
     const [isLoaded, setIsLoaded] = useState(false);
     const isExternalEmbed = Boolean(videoUrl?.includes('youtube.com/embed/') || videoUrl?.includes('player.vimeo.com'));
     const isLocalVideo = Boolean(videoUrl && !isExternalEmbed);
@@ -35,6 +36,7 @@ export default function SeoVideo({ title, description, uploadDate, videoUrl, thu
             ? `https://www.owltable.net${defaultThumbnail}`
             : defaultThumbnail || 'https://www.owltable.net/icon.jpg',
         ...(uploadDate ? { uploadDate } : {}),
+        ...(duration ? { duration } : {}),
         ...(isExternalEmbed ? { embedUrl: videoUrl } : { contentUrl: `https://www.owltable.net${videoUrl}` }),
     } : null;
 
