@@ -1,10 +1,11 @@
-import { mkdirSync, rmSync } from 'node:fs';
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { spawnSync } from 'node:child_process';
 import sharp from 'sharp';
+import * as googleTTS from 'google-tts-api';
 
 // Shared engine for the long-form marketing videos. A video is a list of
 // scenes; each scene renders its stage content for a local time t (seconds)
@@ -360,6 +361,24 @@ export async function runVideo({ slug, scenes, poster, brandTspan = `<tspan fill
         }
     }
 
+    // Extract all captions with their global start times.
+    const allCaptions = [];
+    let currentSceneStart = 0;
+    for (const scene of scenes) {
+        if (scene.captions) {
+            for (const cap of scene.captions) {
+                if (cap.text && cap.text.trim()) {
+                    allCaptions.push({
+                        text: cap.text.trim(),
+                        globalStart: currentSceneStart + cap.start,
+                        globalEnd: currentSceneStart + cap.end,
+                    });
+                }
+            }
+        }
+        currentSceneStart += scene.duration;
+    }
+
     // Ambient bed: low D drone with two chord colors slowly crossfading so the
     // pad evolves over the full runtime without clicks.
     const audioExpr = [
@@ -368,33 +387,106 @@ export async function runVideo({ slug, scenes, poster, brandTspan = `<tspan fill
         `(0.5+0.5*cos(2*PI*t/${chordPeriod}))*(0.075*sin(2*PI*220.00*t)+0.06*sin(2*PI*293.66*t)+0.045*sin(2*PI*369.99*t))`,
         `(0.5-0.5*cos(2*PI*t/${chordPeriod}))*(0.07*sin(2*PI*196.00*t)+0.055*sin(2*PI*246.94*t)+0.04*sin(2*PI*392.00*t))`,
     ].join('+');
-    const audioFilter = [
-        'tremolo=f=0.15:d=0.4',
-        'aecho=0.8:0.85:90:0.22',
-        'lowpass=f=2200',
-        'afade=t=in:st=0:d=1.6',
-        `afade=t=out:st=${durationSeconds - 2.2}:d=2.2`,
-        'volume=1.25',
-        'alimiter=limit=0.9',
-    ].join(',');
 
-    run([
-        '-y',
-        '-framerate', String(fps),
-        '-i', join(frameDir, 'frame-%05d.jpg'),
-        '-f', 'lavfi',
-        '-i', `aevalsrc=${audioExpr}:s=44100:d=${durationSeconds}`,
-        '-c:v', 'libx264',
-        '-crf', String(crf),
-        '-preset', 'medium',
-        '-pix_fmt', 'yuv420p',
-        '-movflags', '+faststart',
-        '-af', audioFilter,
-        '-c:a', 'aac',
-        '-b:a', '128k',
-        '-shortest',
-        mp4Path,
-    ], `Generating ${mp4Path}`);
+    if (allCaptions.length === 0) {
+        const audioFilter = [
+            'tremolo=f=0.15:d=0.4',
+            'aecho=0.8:0.85:90:0.22',
+            'lowpass=f=2200',
+            'afade=t=in:st=0:d=1.6',
+            `afade=t=out:st=${durationSeconds - 2.2}:d=2.2`,
+            'volume=1.25',
+            'alimiter=limit=0.9',
+        ].join(',');
+
+        run([
+            '-y',
+            '-framerate', String(fps),
+            '-i', join(frameDir, 'frame-%05d.jpg'),
+            '-f', 'lavfi',
+            '-i', `aevalsrc=${audioExpr}:s=44100:d=${durationSeconds}`,
+            '-c:v', 'libx264',
+            '-crf', String(crf),
+            '-preset', 'medium',
+            '-pix_fmt', 'yuv420p',
+            '-movflags', '+faststart',
+            '-af', audioFilter,
+            '-c:a', 'aac',
+            '-b:a', '128k',
+            '-shortest',
+            mp4Path,
+        ], `Generating ${mp4Path}`);
+    } else {
+        const ttsDir = join(frameDir, 'tts');
+        mkdirSync(ttsDir, { recursive: true });
+
+        console.log(`[${slug}] downloading ${allCaptions.length} TTS captions...`);
+        const fetchWithRetry = async (url, retries = 3) => {
+            for (let attempt = 1; attempt <= retries; attempt++) {
+                try {
+                    const res = await fetch(url);
+                    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                    return res;
+                } catch (err) {
+                    if (attempt === retries) throw err;
+                    console.warn(`TTS download attempt ${attempt} failed, retrying...`);
+                    await new Promise(resolve => setTimeout(resolve, 500 * attempt));
+                }
+            }
+        };
+
+        await Promise.all(
+            allCaptions.map(async (cap, i) => {
+                const url = googleTTS.getAudioUrl(cap.text, {
+                    lang: 'en',
+                    slow: false,
+                    host: 'https://translate.google.com',
+                });
+                const res = await fetchWithRetry(url);
+                const buffer = await res.arrayBuffer();
+                const filePath = join(ttsDir, `caption-${i}.mp3`);
+                writeFileSync(filePath, Buffer.from(buffer));
+                cap.filePath = filePath;
+            })
+        );
+
+        const inputArgs = [
+            '-y',
+            '-framerate', String(fps),
+            '-i', join(frameDir, 'frame-%05d.jpg'),
+            '-f', 'lavfi',
+            '-i', `aevalsrc=${audioExpr}:s=44100:d=${durationSeconds}`,
+        ];
+
+        for (const cap of allCaptions) {
+            inputArgs.push('-i', cap.filePath);
+        }
+
+        const filterComplex = [
+            `[1:a]tremolo=f=0.15:d=0.4,aecho=0.8:0.85:90:0.22,lowpass=f=2200,afade=t=in:st=0:d=1.6,afade=t=out:st=${durationSeconds - 2.2}:d=2.2,volume=0.06[bg]`,
+            ...allCaptions.map((cap, i) => {
+                const delayMs = Math.round(cap.globalStart * 1000);
+                return `[${i + 2}:a]adelay=${delayMs}|${delayMs}[a${i}]`;
+            }),
+            `[bg]${allCaptions.map((_, i) => `[a${i}]`).join('')}amix=inputs=${allCaptions.length + 1}:normalize=0,volume=1.5,alimiter=limit=0.9[mixa]`,
+        ].join('; ');
+
+        run([
+            ...inputArgs,
+            '-filter_complex', filterComplex,
+            '-map', '0:v',
+            '-map', '[mixa]',
+            '-c:v', 'libx264',
+            '-crf', String(crf),
+            '-preset', 'medium',
+            '-pix_fmt', 'yuv420p',
+            '-movflags', '+faststart',
+            '-c:a', 'aac',
+            '-b:a', '128k',
+            '-shortest',
+            mp4Path,
+        ], `Generating ${mp4Path}`);
+    }
 
     // Frames are large; drop them as soon as the encode is done.
     rmSync(frameDir, { recursive: true, force: true });
