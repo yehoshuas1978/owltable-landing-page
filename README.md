@@ -1,45 +1,34 @@
 # OwlMask Landing Page
 
-The marketing and landing page for the OwlMask ecosystem. It showcases the features, value proposition, and documentation links for the data provisioning platform.
+The marketing and landing site for the OwlMask ecosystem (OwlMask PII masking
+and the OwlTable data-provisioning platform). It presents the value
+proposition, feature overviews, pricing, and documentation links.
 
 ## What it does
 
-- Presents the OwlMask platform to users and potential customers.
-- Highlights core features: Data Masking, Subsetting, Synthetic Data, and Validation.
-- Provides deployment guides, pricing information, and documentation links.
+- Presents the OwlMask/OwlTable platforms to users and prospects.
+- Highlights core capabilities: Data Masking, Subsetting, Synthetic Data, and
+  Validation.
+- Links to product documentation and deployment guides.
 
-## How to use it
+Marketing and product copy lives under [`documentation/`](documentation/)
+(feature pages, product comparisons, launch articles, and video scripts).
 
-### Prerequisites
-
-- Node.js 18+
-- npm, yarn, pnpm, or bun
-
-### Development Server
-
-First, run the development server:
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Edit pages under `app/`; the dev server hot-reloads on save.
 
-### Production Build
-
-To build the application for production:
+## Build
 
 ```bash
 npm run build
 npm run start
 ```
 
-### Deployment
-
-The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme). Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy the build output on any Next.js-compatible host per the team's
+deployment process.
