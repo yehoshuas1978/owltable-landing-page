@@ -6,6 +6,8 @@ This document serves Product Managers, Developers, Technical Writers, Solutions 
 
 ---
 
+# Part I: Strategy & Audience
+
 ## 1. Communication Principles
 
 Our objective is **not producing videos or writing documentation; our objective is communicating the value of OwlTable.** 
@@ -17,8 +19,6 @@ To achieve this, every asset must adhere to these core principles:
 - **Complete Workflows:** Demonstrate complete workflows (source to target) instead of isolated features.
 - **Consistent Terminology:** Keep terminology identical across videos, documentation, and the UI.
 - **Measurable Objectives:** Every communication asset must have a measurable objective (e.g., reduce support tickets, drive demo requests).
-
----
 
 ## 2. Customer Journey Matrix
 
@@ -34,8 +34,6 @@ We map our content to a distinct learning journey. Use this matrix to understand
 | **Decision Maker** | "What is the ROI?" | Sales demo, Case studies | Enterprise contract signed |
 | **Power User** | "How do I extend this?" | API guides, Architecture deep-dives | Customer advocacy / Conference talk |
 
----
-
 ## 3. The Product Narrative
 
 We emphasize storytelling over feature lists. Every OwlTable demo—whether a 60-second social clip or a 10-minute webinar—must follow this narrative arc:
@@ -47,25 +45,7 @@ We emphasize storytelling over feature lists. Every OwlTable demo—whether a 60
 5. **Business Value:** "Developers get data instantly; Security maintains compliance."
 6. **Next Step:** "Install the Docker container to try it yourself."
 
----
-
-## 4. Product Terminology Glossary
-
-Every important OwlTable term has one official definition. Use these consistently everywhere. Do not invent product terminology.
-
-- **Provisioning Job:** The automated execution of copying, masking, and subsetting data from a source to a target.
-- **Masking Profile:** A reusable configuration defining which columns receive which masking algorithms.
-- **Readiness Check:** The pre-flight verification step ensuring the target database is safe to overwrite.
-- **Workspace:** A logically isolated environment within OwlTable for a specific team or project.
-- **Discovery:** The automated scanning process that identifies PII and sensitive data.
-- **Validation:** Post-provisioning checks to ensure masking was successful and data remains structurally sound.
-- **Synthetic Data:** Artificially generated data that mimics the statistical properties of production data without containing real PII.
-- **Scheduler:** The OwlTable cron-based engine for automating recurring Provisioning Jobs.
-- **Compare:** The tool used to diff schemas or data between a source and a target.
-
----
-
-## 5. Expanded Customer Personas
+## 4. Expanded Customer Personas
 
 Tailor the narrative to the specific audience.
 
@@ -106,9 +86,15 @@ Tailor the narrative to the specific audience.
 
 ---
 
-## 6. Demo Environment Governance
+# Part II: The Demo Environment
+
+## 5. Demo Environment Governance
 
 To ensure consistency across all documentation, videos, and sales demos, we use a single, reusable fictional organization: **Acme Retail**.
+
+> [!NOTE] 
+> **Decision Record: Why Acme Retail?**
+> We use a unified fictional company because prospects retain technical concepts better when the database schema remains identical across all tutorials. Constantly switching between a "healthcare" demo and an "ecommerce" demo causes cognitive whiplash.
 
 ### The Acme Retail Lore
 - **Industry:** Mid-sized B2C E-commerce.
@@ -121,14 +107,12 @@ To ensure consistency across all documentation, videos, and sales demos, we use 
 - **Version Control:** The entire Acme Retail schema and initial dataset must be checked into the `owltable-demo-env` repository.
 - **Reset Scripts:** Use `reset.sh` before every demo to tear down the environment, rebuild containers, and restore the exact baseline snapshot.
 - **Naming Conventions:** Never use "test_db", "foo", or "bar". Always use `acme_prod` and `acme_dev_1`.
-- **Data Ownership:** Marketing owns the Acme Retail dataset. Engineering must submit PRs to update it.
+- **Data Ownership:** The **Head of Product Marketing** owns the Acme Retail dataset. Engineering must submit PRs to update it.
 - **Test Accounts & Passwords:** Standardized dummy credentials (`admin@acmeretail.com` / `OwlTableDemo123!`). Never use personal emails in recordings.
 - **Expected Execution Time:** Ensure the dataset is sized so that a full Provisioning Job completes within 45 seconds during a live demo.
 - **Health Checks & Backups:** The demo environment must have automated health checks in CI to ensure the reset script functions flawlessly before major conferences.
 
----
-
-## 7. Demo Scenario Catalog
+## 6. Demo Scenario Catalog
 
 Replace feature-driven walkthroughs with this catalog of reusable business scenarios.
 
@@ -161,6 +145,22 @@ Replace feature-driven walkthroughs with this catalog of reusable business scena
 
 ---
 
+# Part III: Execution Guidelines
+
+## 7. Product Terminology Glossary
+
+Every important OwlTable term has one official definition. Use these consistently everywhere. Do not invent product terminology.
+
+- **Provisioning Job:** The automated execution of copying, masking, and subsetting data from a source to a target.
+- **Masking Profile:** A reusable configuration defining which columns receive which masking algorithms.
+- **Readiness Check:** The pre-flight verification step ensuring the target database is safe to overwrite.
+- **Workspace:** A logically isolated environment within OwlTable for a specific team or project.
+- **Discovery:** The automated scanning process that identifies PII and sensitive data.
+- **Validation:** Post-provisioning checks to ensure masking was successful and data remains structurally sound.
+- **Synthetic Data:** Artificially generated data that mimics the statistical properties of production data without containing real PII.
+- **Scheduler:** The OwlTable cron-based engine for automating recurring Provisioning Jobs.
+- **Compare:** The tool used to diff schemas or data between a source and a target.
+
 ## 8. Script Writing Rules
 
 When writing a script for a video or a tutorial, adhere strictly to these rules:
@@ -172,8 +172,6 @@ When writing a script for a video or a tutorial, adhere strictly to these rules:
    - *Bad:* "Click the blue Add Profile button in the top right corner."
    - *Better:* "Create a reusable masking profile so every future provisioning job applies the same protection."
 
----
-
 ## 9. Visual Identity & Modular Asset Strategy
 
 ### Visual Identity
@@ -183,13 +181,39 @@ When writing a script for a video or a tutorial, adhere strictly to these rules:
 - **Cursor Style:** Oversized white cursor with a subtle 30% opacity yellow highlight ring.
 - **Zoom & Mouse:** Smooth, eased zooms (125%-150%). Move the mouse deliberately.
 
+### Modular Asset Strategy
+We design reusable assets to avoid recording the same material twice.
+- **20-second clips:** Keep a library of raw UI interactions (e.g., "Clicking Add Connection").
+- **Templates:** Pre-built timelines with Intros, Outros, and background music already aligned for Non-Linear Editors.
+
+> [!NOTE] 
+> **Decision Record: Why standard NLEs instead of automated CLI video tools?**
+> Automated UI recording tools are highly brittle. Authentic, human-recorded clips (even if they require manual effort) convert better and require less maintenance when CSS classes change.
+
 ### AI Usage Policy
 - **Encouraged AI Use:** Drafting scripts, generating SEO titles, creating thumbnail concepts, cleaning up voiceover audio, generating captions/translations.
 - **Authenticity Required (No AI):** The actual product UI, performance demonstrations, benchmark results, and customer workflows must be 100% authentic and manually captured.
 
+## 10. Recording & Execution Standards
+
+### Environment Setup
+- **Scaling:** Browser zoom must be exactly 100% to ensure Material UI components render crisply without scaling artifacts.
+
+### Screen Recording Standards
+- **Resolution:** Local high-res capture (e.g., 1440p or 4K capture).
+- **Framerate:** Minimum 60 FPS.
+- **UI Theme:** Dark theme.
+- **Cleanliness:** Hide OS dock, disable all notifications (Do Not Disturb), hide bookmark bars.
+
+> [!NOTE] 
+> **Decision Record: Preferred Tooling**
+> We currently recommend OBS Studio for high-fidelity local recording and Google Vids for cloud-based team editing, but the core execution standards apply regardless of the specific software vendor used.
+
 ---
 
-## 10. Repository Structure & Asset Organization
+# Part IV: Governance
+
+## 11. Repository Structure & Asset Organization
 
 Keep media assets strictly organized within the repository architecture to avoid asset rot.
 
@@ -204,49 +228,41 @@ Keep media assets strictly organized within the repository architecture to avoid
   /scripts/            # Approved markdown scripts
   /storyboards/        # Scene outlines
   /obs/                # Exported OBS Scene Collections (.json)
-  /google-vids/        # Project manifests
   /youtube/            # Final MP4 exports ready for upload
   /social/             # 30-second trimmed cuts for LinkedIn/X
 ```
 
----
-
-## 11. Media Asset Lifecycle
+## 12. Media Asset Lifecycle
 
 How a media asset moves from idea to archive.
 
-1. **Draft:** Script and storyboard proposed by Marketing.
-2. **Review:** Engineering verifies the technical accuracy of the script.
+1. **Draft:** Script and storyboard proposed by Product Marketing.
+2. **Review:** **Lead Solutions Engineer** verifies the technical accuracy of the script.
 3. **Approved:** Ready for recording.
 4. **Published:** Uploaded to YouTube and embedded in Docs/Landing pages.
 5. **Archived:** UI changes significantly; asset is removed from public channels.
 6. **Re-recorded:** A new asset is generated using the updated UI to replace the archived version.
 
----
-
-## 12. Documentation Governance
+## 13. Documentation Governance
 
 To prevent documentation drift, ownership and review cadences must be strictly enforced.
 
 - **Who Updates:**
-  - *Videos & Landing Pages:* Marketing/DevRel team.
-  - *Tutorials & Feature Pages:* Technical Writing team.
-  - *Release Notes:* Product Management.
+  - *Videos & Landing Pages:* **Head of Product Marketing**.
+  - *Tutorials & Feature Pages:* **Lead Technical Writer**.
+  - *Release Notes:* **Lead Product Manager**.
+- **Automated Validation:** The CI/CD pipeline must execute a dead-link checker (e.g., `mkdocs-linkcheck`) on every PR to ensure docs and embedded videos remain synced.
 - **Review Cadence:** All documentation must undergo a full audit every 6 months.
 - **Update Triggers:** A major UI overhaul, a feature rename, or a change in database connection flow automatically triggers an immediate re-recording of the associated modular assets.
 
----
-
-## 13. Future-proofing
+## 14. Future-proofing
 
 The handbook must remain useful as OwlTable evolves.
 - **UI Redesigns:** Because we use a modular strategy (20-second clips), a UI redesign only requires re-recording the specific clips affected, not entire 10-minute videos.
 - **Feature Renames:** Update the Glossary immediately. Do an exact-string replace across the `docs/` repository.
 - **New Deployment Models:** If SaaS is introduced alongside self-hosted Docker, branch the Demo Scenarios catalog into "SaaS Scenarios" and "Self-Hosted Scenarios".
 
----
-
-## 14. Success Metrics
+## 15. Success Metrics
 
 Expand analytics beyond YouTube. We measure:
 - **Average Watch Time:** Are viewers dropping off before the "Proof" stage?
@@ -257,11 +273,9 @@ Expand analytics beyond YouTube. We measure:
 - **Customer Onboarding Time:** Does the time-to-first-provisioning-job decrease?
 - **Support Ticket Reduction:** Do "How-To" tickets drop after a tutorial release?
 
----
+## 16. Continuous Improvement
 
-## 15. Continuous Improvement
-
-To ensure the handbook evolves alongside OwlTable, the following recurring review process happens **every quarter**:
+To ensure the handbook evolves alongside OwlTable, the following recurring review process happens **every quarter**, owned by the **Head of Product Marketing**:
 
 - [ ] **Review Videos:** Watch the top 5 most trafficked videos. Does the UI still match?
 - [ ] **Review Analytics:** Analyze drop-off rates. Are intros too long?
