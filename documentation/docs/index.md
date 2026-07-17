@@ -15,3 +15,8 @@ realistic test databases from production PostgreSQL data. Start with the
 [OwlTable overview](owltable.md), then explore [masking](owltable-masking.md),
 [subsetting](owltable-subsetting.md), [synthetic generation](owltable-synthetic.md),
 and [how OwlTable compares](owltable-comparison.md) to the rest of the market.
+
+---
+
+### Internal Resources
+For employees and content creators looking to produce demos, tutorials, or marketing assets, please refer to the authoritative [OwlTable Media Strategy & Production Handbook](media/owltable-media-handbook.md).
