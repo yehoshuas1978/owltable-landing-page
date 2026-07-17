@@ -19,4 +19,4 @@ and [how OwlTable compares](owltable-comparison.md) to the rest of the market.
 ---
 
 ### Internal Resources
-For employees and content creators looking to produce demos, tutorials, or marketing assets, please refer to the authoritative [OwlTable Media Strategy & Production Handbook](media/owltable-media-handbook.md).
+For employees and content creators looking to produce demos, tutorials, or marketing assets, please refer to the authoritative [OwlTable Communication Handbook](media/owltable-communication-handbook.md).

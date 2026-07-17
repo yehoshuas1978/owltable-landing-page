@@ -14,9 +14,9 @@ proposition, feature overviews, pricing, and documentation links.
 Marketing and product copy lives under [`documentation/`](documentation/)
 (feature pages, product comparisons, launch articles, and video scripts).
 
-### Media & Production
+### Communication Strategy
 
-If you are an internal employee or creator producing demos, marketing assets, or tutorials, please consult the authoritative [OwlTable Media Strategy & Production Handbook](documentation/docs/media/owltable-media-handbook.md) before starting.
+If you are an internal employee or creator producing demos, marketing assets, or tutorials, please consult the authoritative [OwlTable Communication Handbook](documentation/docs/media/owltable-communication-handbook.md) before starting.
 ## Develop
 
 ```bash
