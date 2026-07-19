@@ -9,9 +9,9 @@ const PLATFORM_DATA = [
     id: 'provisioning',
     name: 'OwlTable Data Provisioning Platform',
     icon: Database,
-    price: '$299',
+    price: '$499',
     period: '/ month',
-    note: 'Per Installation',
+    note: 'Per Installation, billed annually',
     colorClass: 'text-blue-400',
     borderClass: 'border-blue-500/50',
     bgClass: 'bg-blue-600',
@@ -23,9 +23,9 @@ const PLATFORM_DATA = [
     id: 'ultimate',
     name: 'OwlMask Complete Suite',
     icon: Shield,
-    price: '$399',
+    price: '$649',
     period: '/ month',
-    note: 'Per Installation',
+    note: 'Per Installation, billed annually',
     colorClass: 'text-white',
     borderClass: 'border-white/20',
     bgClass: 'bg-white text-black',
@@ -90,26 +90,34 @@ const ProductsAndPricing = () => {
     };
     window.addEventListener('popstate', handlePopState);
 
-    // Fetch live pricing from the portal API when one is configured (e.g.
+    // Fetch the live catalog from the portal API when one is configured (e.g.
     // local dev with NEXT_PUBLIC_PORTAL_URL). Static fallback prices otherwise.
+    // The portal's seed migration is the pricing source of truth; keep the
+    // static values above in sync with it (V2__seed_catalog.sql).
     const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL;
+    const productIdByCode: Record<string, string> = {
+      'owltable': 'provisioning',
+      'owlmask-complete': 'ultimate',
+      'owlmask-sdk': 'sdk',
+      'owlmask-llm': 'ai',
+      'owlmask-code': 'agent',
+    };
     const fetchPricing = async () => {
       if (!portalUrl) return;
       try {
-        const response = await fetch(`${portalUrl}/api/v1/public/pricing`);
-        if (response.ok) {
-          const data = await response.json();
-          if (data.platform) {
-            setPlatformData(prev => prev.map(p => 
-              p.id === 'provisioning' ? { ...p, price: `$${data.platform.price}` } : p
-            ));
-          }
-          if (data.developer) {
-            setDeveloperData(prev => prev.map(p => 
-              p.id === 'sdk' ? { ...p, price: `$${data.developer.price}` } : p
-            ));
+        const response = await fetch(`${portalUrl}/api/v1/public/catalog`);
+        if (!response.ok) return;
+        const data = await response.json();
+        const priceById: Record<string, string> = {};
+        for (const product of data.products ?? []) {
+          const standard = (product.plans ?? []).find((plan: { code: string }) => plan.code === 'standard');
+          const id = productIdByCode[product.code];
+          if (id && standard && standard.priceMonthlyCents != null) {
+            priceById[id] = `$${Math.round(standard.priceMonthlyCents / 100)}`;
           }
         }
+        setPlatformData(prev => prev.map(p => priceById[p.id] ? { ...p, price: priceById[p.id] } : p));
+        setDeveloperData(prev => prev.map(p => priceById[p.id] ? { ...p, price: priceById[p.id] } : p));
       } catch (err) {
         console.error('Failed to fetch live pricing:', err);
       }

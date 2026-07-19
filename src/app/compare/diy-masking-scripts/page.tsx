@@ -16,7 +16,7 @@ const rows: { feature: string; scripts: Cell; owltable: Cell }[] = [
     {
         feature: 'Upfront cost',
         scripts: { ok: true, text: 'Free — it’s your code' },
-        owltable: { ok: false, text: '$299/month per installation' },
+        owltable: { ok: false, text: '$499/month per installation' },
     },
     {
         feature: 'Control',

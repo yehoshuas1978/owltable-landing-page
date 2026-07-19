@@ -131,7 +131,7 @@ export default function CompareDelphix() {
                         <DollarSign className="w-10 h-10 text-blue-400 mb-6" />
                         <h3 className="text-2xl font-bold mb-4">A Price You Can Read</h3>
                         <p className="text-gray-400 leading-relaxed">
-                            Legacy tools charge by the terabyte, punishing you for scaling. OwlTable is a flat, published monthly rate per installation — $299 for the platform, on the pricing page, no sales call required.
+                            Legacy tools charge by the terabyte, punishing you for scaling. OwlTable is a flat, published monthly rate per installation — $499 for the platform, on the pricing page, no sales call required.
                         </p>
                     </div>
                 </div>

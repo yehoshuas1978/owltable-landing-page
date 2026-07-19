@@ -107,7 +107,7 @@ export default function CompareTonic() {
                         <DollarSign className="w-10 h-10 text-blue-400 mb-6" />
                         <h3 className="text-2xl font-bold mb-4">Pricing you can read</h3>
                         <p className="text-gray-400 leading-relaxed">
-                            OwlTable is $299/month per installation, the complete suite $399 — it’s on the pricing section of this site, not behind a discovery call. Budgeting shouldn’t require a sales cycle.
+                            OwlTable is $499/month per installation billed annually, the complete suite $649 — it’s on the pricing section of this site, not behind a discovery call. Budgeting shouldn’t require a sales cycle.
                         </p>
                     </div>
                     <div className="bg-zinc-900/40 border border-zinc-800 p-8 rounded-2xl hover:bg-zinc-900/60 transition-colors">

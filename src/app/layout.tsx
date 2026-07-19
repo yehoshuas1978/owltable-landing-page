@@ -81,7 +81,7 @@ export default function RootLayout({
                 "applicationCategory": "DeveloperApplication",
                 "offers": {
                   "@type": "Offer",
-                  "price": "399.00",
+                  "price": "649.00",
                   "priceCurrency": "USD"
                 }
               })
@@ -98,7 +98,7 @@ export default function RootLayout({
                 "operatingSystem": "Windows, macOS, Linux",
                 "offers": {
                   "@type": "Offer",
-                  "price": "299.00",
+                  "price": "499.00",
                   "priceCurrency": "USD"
                 },
                 "description": "A Jobs-first data provisioning platform for protected, realistic test databases with masking, subsetting, readiness assessment, and validation evidence.",
