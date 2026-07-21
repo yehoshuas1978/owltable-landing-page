@@ -11,12 +11,14 @@ proposition, feature overviews, pricing, and documentation links.
   Validation.
 - Links to product documentation and deployment guides.
 
-Marketing and product copy lives under [`documentation/`](documentation/)
-(feature pages, product comparisons, launch articles, and video scripts).
+Published site/docs source lives under [`documentation/`](documentation/)
+(MkDocs feature pages and product comparisons). Internal launch articles and
+video scripts moved to
+[`../owltable-share/documentation/marketing/`](../owltable-share/documentation/marketing/).
 
 ### Communication Strategy
 
-If you are an internal employee or creator producing demos, marketing assets, or tutorials, please consult the authoritative [OwlTable Communication Handbook](documentation/docs/media/owltable-communication-handbook.md) before starting.
+If you are an internal employee or creator producing demos, marketing assets, or tutorials, please consult the authoritative [OwlTable Communication Handbook](../owltable-share/documentation/marketing/owltable-communication-handbook.md) before starting.
 ## Develop
 
 ```bash
@@ -24,7 +26,7 @@ npm install
 npm run dev     # http://localhost:3000
 ```
 
-Edit pages under `app/`; the dev server hot-reloads on save.
+Edit pages under `src/app/`; the dev server hot-reloads on save.
 
 ## Build
 

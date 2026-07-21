@@ -38,4 +38,4 @@ Every message above is real product output. If a run is going to disappoint you 
 
 ## Get started
 
-OwlTable runs alongside OwlMask as part of the same platform. See the [features overview](features) and [architecture](architecture) pages, or contact us for a guided evaluation.
+OwlTable runs alongside OwlMask as part of the same platform. See [how OwlTable compares](owltable-comparison.md) to the rest of the market, or contact us for a guided evaluation.

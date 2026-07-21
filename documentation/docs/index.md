@@ -1,22 +1,17 @@
-# Welcome to OwlMask
+# OwlTable Documentation
 
-**Take Control of Your Databases.**
+**Provably safe test data for PostgreSQL.**
 
-In today's complex data environments, managing multiple databases can be a major challenge. OwlMask is a unified database management tool that empowers you to work faster, reduce risk, and gain deep visibility into your data infrastructure.
+OwlTable is a data provisioning platform that builds safe, realistic test
+databases from production data. Where other tools ask you to trust that
+masking happened, OwlTable proves it — with readiness gates that block unsafe
+runs before they start, masking evidence after they finish, and honest
+preflight reports in between.
 
-Whether you are a developer, a DBA, or a data analyst, OwlMask provides the tools you need to build, manage, and optimize your databases with confidence.
+Start here:
 
-**OwlMask offers a robust set of features including advanced query editing, schema visualization, real-time performance monitoring, and secure access controls, all designed to streamline your database operations.**
-
-This documentation provides a comprehensive overview of the OwlMask product, including its cutting-edge **Features** and its secure **Architecture**.
-
-**New: OwlTable** — the platform's data provisioning suite for building provably safe,
-realistic test databases from production PostgreSQL data. Start with the
-[OwlTable overview](owltable.md), then explore [masking](owltable-masking.md),
-[subsetting](owltable-subsetting.md), [synthetic generation](owltable-synthetic.md),
-and [how OwlTable compares](owltable-comparison.md) to the rest of the market.
-
----
-
-### Internal Resources
-For employees and content creators looking to produce demos, tutorials, or marketing assets, please refer to the authoritative [OwlTable Communication Handbook](media/owltable-communication-handbook.md).
+- [OwlTable overview](owltable.md) — what it is and why teams choose it
+- [Masking](owltable-masking.md) — blocked before, proven after
+- [Subsetting](owltable-subsetting.md) — a small database that behaves like the big one
+- [Synthetic generation](owltable-synthetic.md) — realistic data that never read a row
+- [How OwlTable compares](owltable-comparison.md) — an honest map of the market, including what others do better
