@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { CheckCircle2, XCircle, AlertTriangle, Wrench, EyeOff, Scale } from 'lucide-react';
 import type { Metadata } from 'next';
 import CompareLinks from '@/components/CompareLinks';
+import JsonLd from '@/components/JsonLd';
+import { FALLBACK_CATALOG, formatCatalogTerms, getCatalogProduct } from '@/lib/catalog';
+
+const owltable = getCatalogProduct(FALLBACK_CATALOG, 'owltable');
 
 export const metadata: Metadata = {
     title: 'OwlTable vs. DIY Masking Scripts | An Honest Comparison',
@@ -16,7 +20,7 @@ const rows: { feature: string; scripts: Cell; owltable: Cell }[] = [
     {
         feature: 'Upfront cost',
         scripts: { ok: true, text: 'Free — it’s your code' },
-        owltable: { ok: false, text: '$499/month per installation' },
+        owltable: { ok: false, text: formatCatalogTerms(owltable) },
     },
     {
         feature: 'Control',
@@ -53,6 +57,17 @@ const rows: { feature: string; scripts: Cell; owltable: Cell }[] = [
 export default function CompareDiyScripts() {
     return (
         <main className="min-h-screen bg-black text-white pt-24 pb-16">
+            <JsonLd data={{
+                '@context': 'https://schema.org',
+                '@type': 'WebPage',
+                name: 'OwlTable vs. DIY Masking Scripts',
+                description: metadata.description,
+                url: 'https://www.owltable.net/compare/diy-masking-scripts',
+                about: [
+                    { '@type': 'SoftwareApplication', name: owltable.name, url: 'https://www.owltable.net/#pricing' },
+                    { '@type': 'Thing', name: 'In-house data masking scripts' },
+                ],
+            }} />
             <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
                 <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[120px] mix-blend-screen opacity-50" />
                 <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] mix-blend-screen opacity-40" />

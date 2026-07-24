@@ -1,0 +1,181 @@
+{
+  "contractVersion": "1.0",
+  "products": [
+    {
+      "code": "owltable",
+      "name": "OwlTable Data Provisioning Platform",
+      "description": "The operational home for data teams: plan Jobs, assess readiness, provision targets, mask sensitive values, subset relational data, and review validation evidence.",
+      "bundleOf": null,
+      "plans": [
+        {
+          "code": "trial",
+          "name": "Trial",
+          "priceMonthlyCents": null,
+          "billingPeriod": "ONE_TIME",
+          "trialDays": 30,
+          "features": {
+            "engines": ["postgresql", "mysql", "sqlserver"],
+            "scheduling": true,
+            "validation_evidence": true
+          },
+          "limits": {
+            "seats": 10,
+            "installations": 1,
+            "max_source_connections": 5
+          }
+        },
+        {
+          "code": "standard",
+          "name": "Standard",
+          "priceMonthlyCents": 49900,
+          "billingPeriod": "YEARLY",
+          "trialDays": null,
+          "features": {
+            "engines": ["postgresql", "mysql", "sqlserver"],
+            "scheduling": true,
+            "validation_evidence": true
+          },
+          "limits": {
+            "seats": 10,
+            "installations": 1,
+            "max_source_connections": 5
+          }
+        }
+      ]
+    },
+    {
+      "code": "owlmask-sdk",
+      "name": "OwlMask SDK",
+      "description": "Embeddable data-masking capabilities for teams that want to put privacy controls directly into their own services and pipelines.",
+      "bundleOf": null,
+      "plans": [
+        {
+          "code": "trial",
+          "name": "Trial",
+          "priceMonthlyCents": null,
+          "billingPeriod": "ONE_TIME",
+          "trialDays": 30,
+          "features": {
+            "algorithm_packs": "all",
+            "pdf_redaction": true
+          },
+          "limits": {
+            "installations": 1
+          }
+        },
+        {
+          "code": "standard",
+          "name": "Standard",
+          "priceMonthlyCents": 4900,
+          "billingPeriod": "YEARLY",
+          "trialDays": null,
+          "features": {
+            "algorithm_packs": "all",
+            "pdf_redaction": true
+          },
+          "limits": {
+            "installations": 1
+          }
+        }
+      ]
+    },
+    {
+      "code": "owlmask-llm",
+      "name": "OwlMask LLM",
+      "description": "Core masking tools with local generative capabilities for sensitive, unstructured free-text data.",
+      "bundleOf": null,
+      "plans": [
+        {
+          "code": "trial",
+          "name": "Trial",
+          "priceMonthlyCents": null,
+          "billingPeriod": "ONE_TIME",
+          "trialDays": 30,
+          "features": {
+            "local_llm_masking": true
+          },
+          "limits": {
+            "installations": 1
+          }
+        },
+        {
+          "code": "standard",
+          "name": "Standard",
+          "priceMonthlyCents": 9900,
+          "billingPeriod": "YEARLY",
+          "trialDays": null,
+          "features": {
+            "local_llm_masking": true
+          },
+          "limits": {
+            "installations": 1
+          }
+        }
+      ]
+    },
+    {
+      "code": "owlmask-code",
+      "name": "OwlMask Code",
+      "description": "Automation to inspect schemas, identify sensitive-data candidates, and accelerate masking configuration work.",
+      "bundleOf": null,
+      "plans": [
+        {
+          "code": "trial",
+          "name": "Trial",
+          "priceMonthlyCents": null,
+          "billingPeriod": "ONE_TIME",
+          "trialDays": 30,
+          "features": {
+            "schema_automation": true
+          },
+          "limits": {
+            "installations": 1
+          }
+        },
+        {
+          "code": "standard",
+          "name": "Standard",
+          "priceMonthlyCents": 14900,
+          "billingPeriod": "YEARLY",
+          "trialDays": null,
+          "features": {
+            "schema_automation": true
+          },
+          "limits": {
+            "installations": 1
+          }
+        }
+      ]
+    },
+    {
+      "code": "owlmask-complete",
+      "name": "OwlMask Complete Suite",
+      "description": "OwlTable for data operations, plus the headless SDKs, local AI masking capabilities, and engineering automation tools in the broader OwlMask ecosystem.",
+      "bundleOf": ["owltable", "owlmask-sdk", "owlmask-llm", "owlmask-code"],
+      "plans": [
+        {
+          "code": "trial",
+          "name": "Trial",
+          "priceMonthlyCents": null,
+          "billingPeriod": "ONE_TIME",
+          "trialDays": 30,
+          "features": {},
+          "limits": {
+            "installations": 1
+          }
+        },
+        {
+          "code": "standard",
+          "name": "Standard",
+          "priceMonthlyCents": 64900,
+          "billingPeriod": "YEARLY",
+          "trialDays": null,
+          "features": {},
+          "limits": {
+            "installations": 1
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { buildProductJsonLd } from "@/lib/structuredData";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -46,6 +48,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const productJsonLd = buildProductJsonLd();
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased flex flex-col min-h-screen">
@@ -62,60 +66,18 @@ export default function RootLayout({
                 "email": "founder@owlmask.com",
                 "description": "OwlMask builds the OwlTable data provisioning platform and the OwlMask SDK, LLM, and Code tools for safe, realistic test data.",
                 "brand": [
-                  { "@type": "Brand", "name": "OwlTable" },
+                  { "@type": "Brand", "name": "OwlTable Data Provisioning Platform" },
                   { "@type": "Brand", "name": "OwlMask SDK" },
                   { "@type": "Brand", "name": "OwlMask LLM" },
-                  { "@type": "Brand", "name": "OwlMask Code" }
+                  { "@type": "Brand", "name": "OwlMask Code" },
+                  { "@type": "Brand", "name": "OwlMask Complete Suite" }
                 ]
               })
             }}
           />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": "OwlMask Complete Suite",
-                "operatingSystem": "Windows, macOS, Linux",
-                "applicationCategory": "DeveloperApplication",
-                "offers": {
-                  "@type": "Offer",
-                  "price": "649.00",
-                  "priceCurrency": "USD"
-                }
-              })
-            }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": "OwlTable",
-                "applicationCategory": "DatabaseApplication",
-                "operatingSystem": "Windows, macOS, Linux",
-                "offers": {
-                  "@type": "Offer",
-                  "price": "499.00",
-                  "priceCurrency": "USD"
-                },
-                "description": "A Jobs-first data provisioning platform for protected, realistic test databases with masking, subsetting, readiness assessment, and validation evidence.",
-                "url": "https://www.owltable.net",
-                "author": {
-                  "@type": "Organization",
-                  "name": "OwlMask"
-                },
-                "featureList": [
-                  "Database provisioning jobs",
-                  "Data masking and relational subsetting",
-                  "Readiness assessment and validation evidence",
-                  "PostgreSQL, MySQL, and SQL Server support"
-                ]
-              })
-            }}
-          />
+          {productJsonLd.map((data) => (
+            <JsonLd key={String(data['@id'])} data={data} />
+          ))}
           <div className="flex-grow">
             {children}
           </div>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { normalizePortalOrigin } from '@/lib/catalog';
 
 const navLinks = [
   { href: '/get-started', label: 'Get started' },
@@ -16,16 +17,16 @@ const navLinks = [
 
 // Portal endpoints only exist when a portal URL is configured (e.g. local dev
 // with NEXT_PUBLIC_PORTAL_URL=http://localhost:9080). Never fetch otherwise.
-const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL;
+const portalOrigin = normalizePortalOrigin(process.env.NEXT_PUBLIC_PORTAL_URL);
 
 export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    if (!portalUrl) return;
+    if (!portalOrigin) return;
     // Check for global SSO cookie session
-    fetch(`${portalUrl}/api/v1/auth/status`, { credentials: 'include' })
+    fetch(`${portalOrigin}/api/v1/auth/status`, { credentials: 'include' })
       .then(res => res.json())
       .then(data => setIsAuthenticated(data.authenticated === true))
       .catch(() => setIsAuthenticated(false));

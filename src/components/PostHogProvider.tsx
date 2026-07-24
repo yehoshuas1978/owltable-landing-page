@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY || 'phc_placeholder_key';
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com';
 
-export function PostHogProvider({ children }: { children: any }) {
+export function PostHogProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         posthog.init(POSTHOG_KEY, {
             api_host: POSTHOG_HOST,

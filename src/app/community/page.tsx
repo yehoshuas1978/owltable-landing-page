@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { FALLBACK_CATALOG, formatCatalogTerms } from '@/lib/catalog';
 
 export default function CommunityPage() {
     const [formData, setFormData] = useState({
@@ -170,9 +171,11 @@ ${formData.featureRequest}
                                 className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
                             >
                                 <option value="">Select plan</option>
-                                <option value="starter">Starter ($19/user/month)</option>
-                                <option value="pro">Pro ($79/user/month - up to 10 users + $15/additional user )</option>
-                                <option value="enterprise">Enterprise (Coming soon)</option>
+                                {FALLBACK_CATALOG.map((product) => (
+                                    <option key={product.code} value={product.code}>
+                                        {product.name} ({formatCatalogTerms(product)})
+                                    </option>
+                                ))}
                             </select>
                         </div>
 

@@ -1,142 +1,127 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Shield, Code, Zap, GitBranch, Database, X } from 'lucide-react';
+import { Shield, Code, Zap, GitBranch, Database, X, type LucideIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {
+  FALLBACK_CATALOG,
+  formatBillingTerms,
+  formatMonthlyPrice,
+  formatPricePeriod,
+  getCatalogProduct,
+  normalizePortalOrigin,
+  resolveCatalog,
+  type CatalogProduct,
+  type ProductCode,
+} from '@/lib/catalog';
 
-const PLATFORM_DATA = [
+interface ProductPresentation {
+  code: ProductCode;
+  icon: LucideIcon;
+  colorClass: string;
+  borderClass: string;
+  btnClass: string;
+  advantage: string;
+  badge?: string;
+}
+
+type PresentedProduct = ProductPresentation & CatalogProduct;
+
+const PLATFORM_PRESENTATION: readonly ProductPresentation[] = [
   {
-    id: 'provisioning',
-    name: 'OwlTable Data Provisioning Platform',
+    code: 'owltable',
     icon: Database,
-    price: '$499',
-    period: '/ month',
-    note: 'Per Installation, billed annually',
     colorClass: 'text-blue-400',
     borderClass: 'border-blue-500/50',
-    bgClass: 'bg-blue-600',
+    btnClass: 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]',
     badge: 'FLAGSHIP',
-    whatItDoes: 'The operational home for data teams: plan Jobs, assess readiness, provision targets, mask sensitive values, subset relational data, and review validation evidence.',
     advantage: 'A complete Jobs-first workflow for dependable test data, without forcing teams to stitch together separate provisioning, masking, and verification tools.'
   },
   {
-    id: 'ultimate',
-    name: 'OwlMask Complete Suite',
+    code: 'owlmask-complete',
     icon: Shield,
-    price: '$649',
-    period: '/ month',
-    note: 'Per Installation, billed annually',
     colorClass: 'text-white',
     borderClass: 'border-white/20',
-    bgClass: 'bg-white text-black',
+    btnClass: 'bg-white hover:bg-gray-200 text-black',
     badge: 'COMPLETE ECOSYSTEM',
-    whatItDoes: 'OwlTable for data operations, plus the headless SDKs, local AI masking capabilities, and engineering automation tools in the broader OwlMask ecosystem.',
     advantage: 'One consistent safety model for data platform teams, application engineers, and the automation that connects their workflows.'
   }
 ];
 
-const DEVELOPER_DATA = [
+const DEVELOPER_PRESENTATION: readonly ProductPresentation[] = [
   {
-    id: 'sdk',
-    name: 'OwlMask SDK',
+    code: 'owlmask-sdk',
     icon: Code,
-    price: '$49',
-    period: '/ month',
-    note: 'Per Installation',
     colorClass: 'text-purple-400',
     borderClass: 'border-purple-500/30',
     btnClass: 'bg-purple-500/10 text-purple-400 hover:bg-purple-500/20',
-    whatItDoes: 'Embeddable data-masking capabilities for teams that want to put privacy controls directly into their own services and pipelines.',
     advantage: 'Bring the same data-safety intent into code-driven workflows alongside the OwlTable operational platform.'
   },
   {
-    id: 'ai',
-    name: 'OwlMask LLM',
+    code: 'owlmask-llm',
     icon: Zap,
-    price: '$99',
-    period: '/ month',
-    note: 'Per Installation',
     colorClass: 'text-amber-400',
     borderClass: 'border-amber-500/30',
     btnClass: 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20',
-    whatItDoes: 'Core masking tools with local generative capabilities for sensitive, unstructured free-text data.',
     advantage: 'Extend structured-data controls into text-heavy systems while keeping the workflow close to your environment.'
   },
   {
-    id: 'agent',
-    name: 'OwlMask Code',
+    code: 'owlmask-code',
     icon: GitBranch,
-    price: '$149',
-    period: '/ month',
-    note: 'Per Installation',
     colorClass: 'text-emerald-400',
     borderClass: 'border-emerald-500/30',
     btnClass: 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20',
-    whatItDoes: 'Automation to inspect schemas, identify sensitive-data candidates, and accelerate masking configuration work.',
     advantage: 'Reduce repetitive setup work while retaining review and control over the policy that reaches production-shaped data.'
   }
 ];
 
 const ProductsAndPricing = () => {
-  const [selectedProduct, setSelectedProduct] = useState<typeof DEVELOPER_DATA[0] | null>(null);
+  const [selectedProductCode, setSelectedProductCode] = useState<ProductCode | null>(null);
+  const [catalog, setCatalog] = useState<readonly CatalogProduct[]>(FALLBACK_CATALOG);
 
-  const [platformData, setPlatformData] = useState(PLATFORM_DATA);
-  const [developerData, setDeveloperData] = useState(DEVELOPER_DATA);
+  const present = (presentation: ProductPresentation): PresentedProduct => ({
+    ...presentation,
+    ...getCatalogProduct(catalog, presentation.code),
+  });
+  const platformData = PLATFORM_PRESENTATION.map(present);
+  const developerData = DEVELOPER_PRESENTATION.map(present);
+  const selectedProduct = selectedProductCode
+    ? developerData.find((product) => product.code === selectedProductCode) ?? null
+    : null;
 
   // Sync modal state with browser history (Back button support)
   useEffect(() => {
     const handlePopState = () => {
-      setSelectedProduct(null);
+      setSelectedProductCode(null);
     };
     window.addEventListener('popstate', handlePopState);
 
-    // Fetch the live catalog from the portal API when one is configured (e.g.
-    // local dev with NEXT_PUBLIC_PORTAL_URL). Static fallback prices otherwise.
-    // The portal's seed migration is the pricing source of truth; keep the
-    // static values above in sync with it (V2__seed_catalog.sql).
-    const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL;
-    const productIdByCode: Record<string, string> = {
-      'owltable': 'provisioning',
-      'owlmask-complete': 'ultimate',
-      'owlmask-sdk': 'sdk',
-      'owlmask-llm': 'ai',
-      'owlmask-code': 'agent',
-    };
-    const fetchPricing = async () => {
-      if (!portalUrl) return;
+    const portalOrigin = normalizePortalOrigin(process.env.NEXT_PUBLIC_PORTAL_URL);
+    const fetchCatalog = async () => {
+      if (!portalOrigin) return;
       try {
-        const response = await fetch(`${portalUrl}/api/v1/public/catalog`);
+        const response = await fetch(`${portalOrigin}/api/v1/public/catalog`);
         if (!response.ok) return;
-        const data = await response.json();
-        const priceById: Record<string, string> = {};
-        for (const product of data.products ?? []) {
-          const standard = (product.plans ?? []).find((plan: { code: string }) => plan.code === 'standard');
-          const id = productIdByCode[product.code];
-          if (id && standard && standard.priceMonthlyCents != null) {
-            priceById[id] = `$${Math.round(standard.priceMonthlyCents / 100)}`;
-          }
-        }
-        setPlatformData(prev => prev.map(p => priceById[p.id] ? { ...p, price: priceById[p.id] } : p));
-        setDeveloperData(prev => prev.map(p => priceById[p.id] ? { ...p, price: priceById[p.id] } : p));
-      } catch (err) {
-        console.error('Failed to fetch live pricing:', err);
+        setCatalog(resolveCatalog(await response.json()));
+      } catch {
+        // The static catalog remains available when the optional portal is down.
       }
     };
-    fetchPricing();
+    fetchCatalog();
 
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const handleOpenDetails = (product: typeof DEVELOPER_DATA[0]) => {
+  const handleOpenDetails = (code: ProductCode) => {
     window.history.pushState({ modalOpen: true }, '');
-    setSelectedProduct(product);
+    setSelectedProductCode(code);
   };
 
   const handleCloseDetails = () => {
     if (window.history.state?.modalOpen) {
       window.history.back();
     }
-    setSelectedProduct(null);
+    setSelectedProductCode(null);
   };
 
   return (
@@ -163,8 +148,8 @@ const ProductsAndPricing = () => {
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
             {platformData.map((platform) => (
-              <div key={platform.id} className={`bg-zinc-900/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border ${platform.borderClass} flex flex-col relative overflow-hidden transition-transform hover:-translate-y-1`}>
-                <div className={`absolute top-0 right-0 ${platform.id === 'provisioning' ? 'bg-blue-500' : 'bg-white'} ${platform.id === 'provisioning' ? 'text-white' : 'text-black'} text-xs font-bold px-4 py-1.5 rounded-bl-lg`}>
+              <div key={platform.code} className={`bg-zinc-900/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border ${platform.borderClass} flex flex-col relative overflow-hidden transition-transform hover:-translate-y-1`}>
+                <div className={`absolute top-0 right-0 ${platform.code === 'owltable' ? 'bg-blue-500 text-white' : 'bg-white text-black'} text-xs font-bold px-4 py-1.5 rounded-bl-lg`}>
                   {platform.badge}
                 </div>
                 
@@ -176,7 +161,7 @@ const ProductsAndPricing = () => {
                 <div className="flex-grow space-y-6 mb-8">
                   <div>
                     <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">What it does</h4>
-                    <p className="text-gray-300 text-lg">{platform.whatItDoes}</p>
+                    <p className="text-gray-300 text-lg">{platform.description}</p>
                   </div>
                   <div>
                     <h4 className={`text-sm font-bold uppercase tracking-wider mb-2 ${platform.colorClass}`}>The Advantage</h4>
@@ -186,15 +171,15 @@ const ProductsAndPricing = () => {
 
                 <div className="mt-auto pt-6 border-t border-zinc-800 flex items-end justify-between">
                   <div>
-                    <span className="text-5xl font-extrabold text-white">{platform.price}</span>
-                    <span className="text-gray-500 font-medium ml-2">{platform.period}</span>
-                    <div className="text-gray-500 text-sm mt-1">{platform.note}</div>
+                    <span className="text-5xl font-extrabold text-white">{formatMonthlyPrice(platform.priceMonthlyCents)}</span>
+                    <span className="text-gray-500 font-medium ml-2">{formatPricePeriod(platform.billingPeriod)}</span>
+                    <div className="text-gray-500 text-sm mt-1">{formatBillingTerms(platform.billingPeriod)}</div>
                   </div>
                   <a 
                     href={`mailto:founder@owlmask.com?subject=${encodeURIComponent(platform.name)}%20Trial`} 
-                    className={`px-8 py-4 rounded-xl font-bold transition-all hover:scale-[1.02] ${platform.id === 'provisioning' ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]' : 'bg-white hover:bg-gray-200 text-black'}`}
+                    className={`px-8 py-4 rounded-xl font-bold transition-all hover:scale-[1.02] ${platform.btnClass}`}
                   >
-                    Request Trial
+                    Request {platform.trialDays}-Day Trial
                   </a>
                 </div>
               </div>
@@ -211,16 +196,16 @@ const ProductsAndPricing = () => {
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {developerData.map((product) => (
-              <div key={product.id} className={`bg-zinc-900/50 backdrop-blur-sm rounded-xl shadow-lg p-6 border ${product.borderClass} flex flex-col relative transition-colors hover:bg-zinc-900/80`}>
+              <div key={product.code} className={`bg-zinc-900/50 backdrop-blur-sm rounded-xl shadow-lg p-6 border ${product.borderClass} flex flex-col relative transition-colors hover:bg-zinc-900/80`}>
                 <div className="flex items-center gap-3 mb-4">
                   <product.icon className={`w-6 h-6 ${product.colorClass}`} />
                   <h4 className="text-xl font-semibold text-white">{product.name}</h4>
                 </div>
                 
                 <div className="mb-6 flex-grow">
-                  <p className="text-gray-400 line-clamp-2 mb-3 text-sm">{product.whatItDoes}</p>
+                  <p className="text-gray-400 line-clamp-2 mb-3 text-sm">{product.description}</p>
                   <button 
-                    onClick={() => handleOpenDetails(product)}
+                    onClick={() => handleOpenDetails(product.code)}
                     className={`text-sm font-semibold hover:underline ${product.colorClass}`}
                   >
                     View details &rarr;
@@ -229,14 +214,15 @@ const ProductsAndPricing = () => {
 
                 <div className="mt-auto pt-5 border-t border-zinc-800/50 flex items-center justify-between">
                   <div>
-                    <span className="text-2xl font-bold text-white">{product.price}</span>
-                    <span className="text-gray-500 text-xs ml-1">{product.period}</span>
+                    <span className="text-2xl font-bold text-white">{formatMonthlyPrice(product.priceMonthlyCents)}</span>
+                    <span className="text-gray-500 text-xs ml-1">{formatPricePeriod(product.billingPeriod)}</span>
+                    <div className="mt-1 max-w-44 text-xs text-gray-500">{formatBillingTerms(product.billingPeriod)}</div>
                   </div>
                   <a 
                     href={`mailto:founder@owlmask.com?subject=${encodeURIComponent(product.name)}%20Trial`} 
                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors border border-transparent ${product.btnClass}`}
                   >
-                    Trial
+                    {product.trialDays}-Day Trial
                   </a>
                 </div>
               </div>
@@ -252,7 +238,7 @@ const ProductsAndPricing = () => {
                 <div>
                     <div className="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xl mx-auto mb-4 border border-blue-500/30">1</div>
                     <h4 className="text-lg font-semibold text-white mb-2">Request Trial</h4>
-                    <p className="text-gray-400 text-sm">Click request on any package. We manually generate and email you a secure 30-Day API Key.</p>
+                    <p className="text-gray-400 text-sm">Click request on any package. We manually generate and email you a secure {catalog[0].trialDays}-day trial key.</p>
                 </div>
                 <div>
                     <div className="w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xl mx-auto mb-4 border border-purple-500/30">2</div>
@@ -300,7 +286,7 @@ const ProductsAndPricing = () => {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-2">What it does</h4>
-                  <p className="text-gray-300 text-lg leading-relaxed">{selectedProduct.whatItDoes}</p>
+                  <p className="text-gray-300 text-lg leading-relaxed">{selectedProduct.description}</p>
                 </div>
                 <div>
                   <h4 className={`text-lg font-semibold mb-2 ${selectedProduct.colorClass}`}>The Advantage</h4>
@@ -310,14 +296,15 @@ const ProductsAndPricing = () => {
               
               <div className="mt-8 pt-8 border-t border-zinc-800 flex items-center justify-between">
                 <div>
-                  <span className="text-3xl font-extrabold text-white">{selectedProduct.price}</span>
-                  <span className="text-gray-500 font-medium ml-2">{selectedProduct.period}</span>
+                  <span className="text-3xl font-extrabold text-white">{formatMonthlyPrice(selectedProduct.priceMonthlyCents)}</span>
+                  <span className="text-gray-500 font-medium ml-2">{formatPricePeriod(selectedProduct.billingPeriod)}</span>
+                  <div className="mt-1 text-sm text-gray-500">{formatBillingTerms(selectedProduct.billingPeriod)}</div>
                 </div>
                 <a 
                   href={`mailto:founder@owlmask.com?subject=${encodeURIComponent(selectedProduct.name)}%20Trial`} 
-                  className={`px-6 py-3 rounded-lg font-bold transition-colors ${selectedProduct.colorClass} border ${selectedProduct.borderClass} ${selectedProduct.btnClass.replace('text-', '')} hover:bg-white hover:text-black`}
+                  className={`px-6 py-3 rounded-lg font-bold transition-colors border ${selectedProduct.borderClass} ${selectedProduct.btnClass} hover:bg-white hover:text-black`}
                 >
-                  Request 30-Day Trial
+                  Request {selectedProduct.trialDays}-Day Trial
                 </a>
               </div>
             </motion.div>

@@ -3,6 +3,10 @@ import Link from 'next/link';
 import { Shield, Zap, DollarSign, CheckCircle2, XCircle } from 'lucide-react';
 import type { Metadata } from 'next';
 import CompareLinks from '@/components/CompareLinks';
+import JsonLd from '@/components/JsonLd';
+import { FALLBACK_CATALOG, formatCatalogTerms, getCatalogProduct } from '@/lib/catalog';
+
+const owltable = getCatalogProduct(FALLBACK_CATALOG, 'owltable');
 
 export const metadata: Metadata = {
     title: 'OwlTable vs. Delphix | The Modern Data Masking Alternative',
@@ -12,6 +16,17 @@ export const metadata: Metadata = {
 export default function CompareDelphix() {
     return (
         <main className="min-h-screen bg-black text-white pt-24 pb-16">
+            <JsonLd data={{
+                '@context': 'https://schema.org',
+                '@type': 'WebPage',
+                name: 'OwlTable vs. Delphix',
+                description: metadata.description,
+                url: 'https://www.owltable.net/compare/delphix-alternative',
+                about: [
+                    { '@type': 'SoftwareApplication', name: owltable.name, url: 'https://www.owltable.net/#pricing' },
+                    { '@type': 'SoftwareApplication', name: 'Delphix' },
+                ],
+            }} />
             {/* Ambient Background */}
             <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
                 <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen opacity-50" />
@@ -96,7 +111,7 @@ export default function CompareDelphix() {
                                     <td className="p-6 bg-blue-900/10 border-l border-zinc-800">
                                         <span className="flex items-center gap-2 text-blue-300">
                                             <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                                            Transparent, Flat Monthly
+                                            {formatCatalogTerms(owltable)}
                                         </span>
                                     </td>
                                     <td className="p-6 border-l border-zinc-800 text-gray-400">
@@ -131,7 +146,7 @@ export default function CompareDelphix() {
                         <DollarSign className="w-10 h-10 text-blue-400 mb-6" />
                         <h3 className="text-2xl font-bold mb-4">A Price You Can Read</h3>
                         <p className="text-gray-400 leading-relaxed">
-                            Legacy tools charge by the terabyte, punishing you for scaling. OwlTable is a flat, published monthly rate per installation — $499 for the platform, on the pricing page, no sales call required.
+                            Legacy tools charge by the terabyte, punishing you for scaling. {owltable.name} is {formatCatalogTerms(owltable)}, published on the pricing page with no sales call required.
                         </p>
                     </div>
                 </div>
