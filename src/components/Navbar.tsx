@@ -20,8 +20,10 @@ const navLinks = [
 const portalOrigin = normalizePortalOrigin(process.env.NEXT_PUBLIC_PORTAL_URL);
 
 export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  // Reflects a real portal SSO session (see the fetch below), not a
+  // simulated one. Only the former /login page was fake.
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     if (!portalOrigin) return;
@@ -58,15 +60,14 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
           </div>
 
           <div className="flex items-center gap-6">
+            {/* The "Log in" link that used to sit here pointed at /login, a
+                simulated login page, so it promised an account journey that did
+                not exist. The dashboard branch below is real: it appears only
+                for a genuine portal SSO session. */}
             {!isAuthenticated ? (
-              <>
-                <Link href="/login" className="hidden md:block text-sm font-medium text-gray-400 hover:text-white transition-colors">
-                  Log in
-                </Link>
-                <a href="mailto:founder@owlmask.com?subject=OwlTable%20guided%20trial" className="hidden md:block text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors shadow-glow-sm">
-                  Request trial
-                </a>
-              </>
+              <a href="mailto:founder@owlmask.com?subject=OwlTable%20guided%20trial" className="hidden md:block text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition-colors shadow-glow-sm">
+                Request trial
+              </a>
             ) : (
               <Link href="https://app.owltable.net/dashboard" className="hidden md:block text-sm font-medium bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg transition-colors shadow-glow-sm">
                 Go to Dashboard
@@ -97,9 +98,6 @@ export default function Navbar({ withMarginTop }: { withMarginTop?: boolean }) {
                 </Link>
               ))}
               <div className="mt-2 flex items-center gap-3 px-3">
-                <Link href="/login" onClick={() => setMobileOpen(false)} className="flex-1 rounded-lg border border-white/15 px-4 py-2.5 text-center text-sm font-medium text-gray-200 transition-colors hover:bg-white/[0.06]">
-                  Log in
-                </Link>
                 <a href="mailto:founder@owlmask.com?subject=OwlTable%20guided%20trial" onClick={() => setMobileOpen(false)} className="flex-1 rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-500">
                   Request trial
                 </a>

@@ -3,7 +3,7 @@
 import { Database, FileCheck2, ServerOff, ShieldCheck } from 'lucide-react';
 
 const claims = [
-  { icon: ServerOff, title: 'Runs on your infrastructure', text: 'Installed locally — data never leaves your network.' },
+  { icon: ServerOff, title: 'Runs on your infrastructure', text: 'Installed locally. Your database credentials and production rows stay on your infrastructure.' },
   { icon: Database, title: 'PostgreSQL · MySQL · SQL Server', text: 'One workflow across the engines you already run.' },
   { icon: ShieldCheck, title: 'Readiness-gated execution', text: 'Blocking checks stop unsafe jobs server-side.' },
   { icon: FileCheck2, title: 'Auditor-ready evidence', text: 'Validation re-scans and evidence packs per run.' },

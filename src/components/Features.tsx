@@ -23,7 +23,7 @@ const features = [
     {
         icon: Zap,
         title: 'OwlMask LLM',
-        description: 'Local AI capabilities for applying data-safety controls to unstructured free-text columns — nothing leaves your network.',
+        description: 'Data-safety controls for unstructured free-text columns. Point it at a local runtime (Ollama) and nothing leaves; point it at a hosted model and only masked text is sent — never the original.',
         className: 'md:col-span-1 md:row-span-1 glass-card p-6 bg-black/40 hover:bg-[#1a1f2e]/60',
         iconBg: 'bg-amber-500/20 text-amber-400',
         large: false

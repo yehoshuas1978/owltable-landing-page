@@ -23,7 +23,7 @@ const rows = [
     },
     {
         feature: 'Free-text & JSON PII',
-        owltable: { ok: true, text: 'Local fine-tuned LLM — data never leaves your network' },
+        owltable: { ok: true, text: 'Run the model locally, or send only masked text to a hosted one' },
         other: { ok: false, text: 'Typically cloud AI services' },
     },
     {

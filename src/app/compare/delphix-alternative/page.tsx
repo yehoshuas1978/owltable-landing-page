@@ -139,7 +139,7 @@ export default function CompareDelphix() {
                         <Shield className="w-10 h-10 text-emerald-400 mb-6" />
                         <h3 className="text-2xl font-bold mb-4">SOC2 & HIPAA Ready</h3>
                         <p className="text-gray-400 leading-relaxed">
-                            Because the engine runs entirely within your VPC—including our local LLM for unstructured text—your sensitive PII never leaves your network. Total data sovereignty.
+                            The engine runs entirely within your VPC. For unstructured text you choose the model: a local runtime keeps everything in your network, and a hosted model receives only masked text — never the original values.
                         </p>
                     </div>
                     <div className="bg-zinc-900/40 border border-zinc-800 p-8 rounded-2xl hover:bg-zinc-900/60 transition-colors">

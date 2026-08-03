@@ -34,7 +34,10 @@ export default function Footer() {
                         <h3 className="text-white font-semibold mb-4">Resources</h3>
                         <ul className="space-y-2">
                             <li><Link href="/community" className="text-gray-400 hover:text-white text-sm transition-colors">Community</Link></li>
-                            <li><Link href="/license" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service & License</Link></li>
+                            {/* Was a link to /license, which rendered a simulated licence-key
+                                viewer rather than any legal document -- the label promised
+                                terms that do not exist. Restore this once real terms are
+                                published. */}
                         </ul>
                     </div>
                     <div>
